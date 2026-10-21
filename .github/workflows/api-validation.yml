@@ -162,6 +162,43 @@ jobs:
                   else:
                       failures.append("Invalid iFinD tools/list")
 
+                  print("=== iFinD tools/call smoke test ===")
+                  called, _ = post_json(
+                      endpoint,
+                      {
+                          "jsonrpc": "2.0", "id": 3, "method": "tools/call",
+                          "params": {"name": "search_securities", "arguments": {
+                              "market": "股票",
+                              "query": "A股市盈率TTM小于30倍，最多返回3只股票"
+                          }}
+                      },
+                      headers
+                  )
+                  payload = called.get("result", {})
+                  if not isinstance(payload, dict) or payload.get("isError"):
+                      failures.append("iFinD tools/call returned error")
+                  else:
+                      blocks = payload.get("content", [])
+                      texts = [x.get("text", "") for x in blocks
+                               if isinstance(x, dict) and x.get("type") == "text"]
+                      if not texts:
+                          failures.append("iFinD tools/call returned no text")
+                      else:
+                          print("PASS: iFinD tools/call, blocks =", len(texts))
+                          for value in texts[:2]:
+                              try:
+                                  parsed = json.loads(value)
+                                  print("JSON result type:", type(parsed).__name__)
+                                  if isinstance(parsed, dict):
+                                      print("Result keys:", sorted(parsed.keys())[:30])
+                                      for k, v in parsed.items():
+                                          if isinstance(v, list):
+                                              print("Array field:", k, "count:", len(v))
+                                              if v and isinstance(v[0], dict):
+                                                  print("First item keys:", sorted(v[0].keys())[:30])
+                              except ValueError:
+                                  print("Non-JSON text length:", len(value), "(content suppressed)")
+
               except Exception as e:
                   failures.append(
                       "iFinD request failed: "
