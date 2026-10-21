@@ -75,10 +75,18 @@ jobs:
                       failures.append(
                           "Fuyao returned no successful data"
                       )
+              except urllib.error.HTTPError as e:
+                  failures.append(
+                      "Fuyao HTTP status: " + str(e.code)
+                      + " (response body suppressed to protect credentials)"
+                  )
+              except urllib.error.URLError as e:
+                  failures.append(
+                      "Fuyao network error: " + type(e.reason).__name__
+                  )
               except Exception as e:
                   failures.append(
-                      "Fuyao request failed: "
-                      + type(e).__name__
+                      "Fuyao request failed: " + type(e).__name__
                   )
 
           print("=== iFinD MCP ===")
