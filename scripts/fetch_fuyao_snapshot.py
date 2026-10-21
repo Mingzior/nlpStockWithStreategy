@@ -51,6 +51,8 @@ def build_snapshot(valuations, prices):
         if all(value is None for value in metrics.values()):
             continue
         output.append({
+            "sourceRecord": {k: v.get(k) for k in ("thscode", "name", "pe_ttm", "pb_mrq") if k in v},
+            "sourceEndpoint": "/api/a-share/valuations/snapshot",
             "code": code, "name": str(v.get("name") or p.get("name") or code),
             "industry": "行业信息未验证", "metrics": metrics,
             "missingNote": {k: ("未接入该指标的已验证数据接口" if k not in ("pe", "pb")
@@ -61,6 +63,9 @@ def build_snapshot(valuations, prices):
     timestamp = valuations.get("timestamp")
     return {
         "mode": "real", "provider": "Fuyao REST API",
+        "sourceDocsUrl": "https://fuyao.aicubes.cn/docs/api-reference/valuations/",
+        "sourceApiPath": "/api/a-share/valuations/snapshot",
+        "sourceDisclosure": "sourceRecord 为接口响应中选取的原始字段；可公开点击的原数据库逐证券记录地址尚未验证，不能将 API 文档冒充原始记录。",
         "asOf": str(timestamp) if timestamp is not None else None,
         "fetchedAt": dt.datetime.now(dt.timezone.utc).isoformat(),
         "scope": "5只预设A股中的有效记录，不代表全市场",
