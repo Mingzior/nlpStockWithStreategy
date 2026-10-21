@@ -1,0 +1,146 @@
+{
+  "mode": "real",
+  "provider": "Fuyao REST API",
+  "asOf": "1792575638000",
+  "fetchedAt": "2026-10-21T09:40:40.082680+00:00",
+  "scope": "5只预设A股中的有效记录，不代表全市场",
+  "metrics": {
+    "pe": {
+      "sourceField": "pe_ttm",
+      "unit": "倍",
+      "period": "TTM"
+    },
+    "pb": {
+      "sourceField": "pb_mrq",
+      "unit": "倍",
+      "period": "MRQ"
+    }
+  },
+  "stocks": [
+    {
+      "code": "600519.SH",
+      "name": "贵州茅台",
+      "industry": "行业信息未验证",
+      "metrics": {
+        "revenue_growth": null,
+        "net_profit_growth": null,
+        "roe": null,
+        "gross_margin": null,
+        "pe": 20.104866,
+        "pb": 6.516203,
+        "debt_ratio": null,
+        "volatility_60d": null,
+        "max_drawdown_1y": null
+      },
+      "missingNote": {
+        "revenue_growth": "未接入该指标的已验证数据接口",
+        "net_profit_growth": "未接入该指标的已验证数据接口",
+        "roe": "未接入该指标的已验证数据接口",
+        "gross_margin": "未接入该指标的已验证数据接口",
+        "debt_ratio": "未接入该指标的已验证数据接口",
+        "volatility_60d": "未接入该指标的已验证数据接口",
+        "max_drawdown_1y": "未接入该指标的已验证数据接口"
+      }
+    },
+    {
+      "code": "000858.SZ",
+      "name": "五粮液",
+      "industry": "行业信息未验证",
+      "metrics": {
+        "revenue_growth": null,
+        "net_profit_growth": null,
+        "roe": null,
+        "gross_margin": null,
+        "pe": 21.361179,
+        "pb": 2.358843,
+        "debt_ratio": null,
+        "volatility_60d": null,
+        "max_drawdown_1y": null
+      },
+      "missingNote": {
+        "revenue_growth": "未接入该指标的已验证数据接口",
+        "net_profit_growth": "未接入该指标的已验证数据接口",
+        "roe": "未接入该指标的已验证数据接口",
+        "gross_margin": "未接入该指标的已验证数据接口",
+        "debt_ratio": "未接入该指标的已验证数据接口",
+        "volatility_60d": "未接入该指标的已验证数据接口",
+        "max_drawdown_1y": "未接入该指标的已验证数据接口"
+      }
+    },
+    {
+      "code": "601318.SH",
+      "name": "中国平安",
+      "industry": "行业信息未验证",
+      "metrics": {
+        "revenue_growth": null,
+        "net_profit_growth": null,
+        "roe": null,
+        "gross_margin": null,
+        "pe": 5.819323,
+        "pb": 0.901786,
+        "debt_ratio": null,
+        "volatility_60d": null,
+        "max_drawdown_1y": null
+      },
+      "missingNote": {
+        "revenue_growth": "未接入该指标的已验证数据接口",
+        "net_profit_growth": "未接入该指标的已验证数据接口",
+        "roe": "未接入该指标的已验证数据接口",
+        "gross_margin": "未接入该指标的已验证数据接口",
+        "debt_ratio": "未接入该指标的已验证数据接口",
+        "volatility_60d": "未接入该指标的已验证数据接口",
+        "max_drawdown_1y": "未接入该指标的已验证数据接口"
+      }
+    },
+    {
+      "code": "600036.SH",
+      "name": "招商银行",
+      "industry": "行业信息未验证",
+      "metrics": {
+        "revenue_growth": null,
+        "net_profit_growth": null,
+        "roe": null,
+        "gross_margin": null,
+        "pe": 7.029157,
+        "pb": 0.931226,
+        "debt_ratio": null,
+        "volatility_60d": null,
+        "max_drawdown_1y": null
+      },
+      "missingNote": {
+        "revenue_growth": "未接入该指标的已验证数据接口",
+        "net_profit_growth": "未接入该指标的已验证数据接口",
+        "roe": "未接入该指标的已验证数据接口",
+        "gross_margin": "未接入该指标的已验证数据接口",
+        "debt_ratio": "未接入该指标的已验证数据接口",
+        "volatility_60d": "未接入该指标的已验证数据接口",
+        "max_drawdown_1y": "未接入该指标的已验证数据接口"
+      }
+    },
+    {
+      "code": "000333.SZ",
+      "name": "美的集团",
+      "industry": "行业信息未验证",
+      "metrics": {
+        "revenue_growth": null,
+        "net_profit_growth": null,
+        "roe": null,
+        "gross_margin": null,
+        "pe": 14.418746,
+        "pb": 3.021376,
+        "debt_ratio": null,
+        "volatility_60d": null,
+        "max_drawdown_1y": null
+      },
+      "missingNote": {
+        "revenue_growth": "未接入该指标的已验证数据接口",
+        "net_profit_growth": "未接入该指标的已验证数据接口",
+        "roe": "未接入该指标的已验证数据接口",
+        "gross_margin": "未接入该指标的已验证数据接口",
+        "debt_ratio": "未接入该指标的已验证数据接口",
+        "volatility_60d": "未接入该指标的已验证数据接口",
+        "max_drawdown_1y": "未接入该指标的已验证数据接口"
+      }
+    }
+  ]
+}
