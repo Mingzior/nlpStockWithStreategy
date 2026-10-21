@@ -26,6 +26,8 @@ jobs:
           test -s docs/index.html
           grep -q '合成数据演示版' docs/index.html
           grep -q 'localStorage' docs/index.html
+          python3 -c "from pathlib import Path; s=Path('docs/index.html').read_text(); Path('/tmp/stocklens-static.js').write_text(s.split('<script>',1)[1].split('</script>',1)[0])"
+          node --check /tmp/stocklens-static.js
           if grep -qE 'IFIND_MCP_AUTHORIZATION|FUYAO_API_KEY' docs/index.html; then exit 1; fi
       - uses: actions/configure-pages@v5
         with:
