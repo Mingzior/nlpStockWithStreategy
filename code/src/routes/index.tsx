@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { executeConfirmedIR, type Proposal } from "@/lib/three-layer";
 import { SyntheticBadge } from "@/components/Shell";
 import { RealScreening } from "@/components/RealScreening";
 import { ADAPTERS, type DataSourceAdapter } from "@/lib/adapters";
@@ -49,7 +50,11 @@ const input = "rounded-md border border-input bg-background px-2 py-1.5 text-sm 
 interface RunState { rules: Rule[]; results: StockResult[]; at: string }
 
 function Screener() {
-  const [query, setQuery] = useState(EXAMPLES[0].q);
+  const [query, setQuery] = useState("");
+  const [proposal,setProposal]=useState<Proposal|null>(null);
+  const [llmBusy,setLlmBusy]=useState(false);
+  const [llmError,setLlmError]=useState("");
+  const [confirmed,setConfirmed]=useState(false);
   const [notes, setNotes] = useState<ParseNote[]>([]);
   const [rules, setRules] = useState<Rule[]>([]);
   const [run, setRun] = useState<RunState | null>(null);
@@ -78,8 +83,19 @@ function Screener() {
   const conflicts = useMemo(() => detectConflicts(rules), [rules]);
   const conflictIds = new Set(conflicts.flatMap((c) => c.ruleIds));
   const dirty = run !== null && JSON.stringify(run.rules) !== JSON.stringify(rules);
-  const canRun = rules.length > 0 && conflicts.length === 0 && !dataError && universe.length > 0;
+  const canRun = confirmed && rules.length > 0 && conflicts.length === 0 && !dataError && universe.length > 0;
 
+  async function doLLMParse(){
+    setLlmBusy(true);setLlmError("");setConfirmed(false);setProposal(null);setRules([]);setRun(null);
+    try{
+      const response=await fetch("/api/intent",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({query})});
+      const body=await response.json();
+      if(!response.ok)throw new Error(body.message||body.error||"意图理解失败");
+      if(body.mode!=="llm_proposal"||!body.requiresConfirmation)throw new Error("服务端响应非法");
+      setProposal(body.proposal as Proposal);setRules(body.compiled.rules as Rule[]);
+      setNotes(body.proposal.clarifications.map((text:string)=>({kind:"ambiguous" as const,text})));
+    }catch(e){setLlmError(e instanceof Error?e.message:"意图理解失败");}finally{setLlmBusy(false)}
+  }
   function doParse(q = query) {
     const r = parseQuery(q);
     setNotes(r.notes);
@@ -87,14 +103,14 @@ function Screener() {
   }
   function doRun() {
     if (!canRun) return;
-    const results = runScreen(universe, rules);
+    const results = executeConfirmedIR({version:1,rules,warnings:[]},universe,confirmed);
     const snapshot = rules.map((r) => ({ ...r }));
     setImpact(run ? computeImpact(run.rules, run.results, snapshot, results) : null);
-    setRun({ rules: snapshot, results, at: new Date().toLocaleString("zh-CN") });
+    setFilter("all");setRun({ rules: snapshot, results, at: new Date().toLocaleString("zh-CN") });
     setExpanded(null);
   }
-  function updateRule(id: string, patch: Partial<Rule>) { setRules((rs) => rs.map((r) => (r.id === id ? { ...r, ...patch } : r))); }
-  function addRule() { setRules((rs) => [...rs, { id: `m${Date.now()}`, metric: "roe", op: ">=", value: 10, origin: "手动添加" }]); }
+  function updateRule(id: string, patch: Partial<Rule>) { setConfirmed(false);setRules((rs) => rs.map((r) => (r.id === id ? { ...r, ...patch } : r))); }
+  function addRule() { setConfirmed(false);setRules((rs) => [...rs, { id: `m${Date.now()}`, metric: "roe", op: ">=", value: 10, origin: "手动添加" }]); }
   function persist(list: SavedStrategy[]) { setStrategies(list); saveStrategies(list); }
   function saveStrategy() {
     const name = stratName.trim() || `策略 ${strategies.length + 1}`;
@@ -120,18 +136,20 @@ function Screener() {
       <section className="panel space-y-3 p-4" aria-labelledby="s1">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 id="s1" className="font-semibold">① 自然语言输入</h2>
-          <span className="rounded border border-border px-2 py-0.5 text-xs text-muted-foreground">解析方式：确定性关键词解析器（非 LLM，相同输入结果恒定）</span>
+          <span className="rounded border border-border px-2 py-0.5 text-xs text-muted-foreground">解析方式：服务端 LLM 候选生成 → 用户确认 → 确定性引擎</span>
         </div>
         <label htmlFor="q" className="sr-only">选股描述</label>
-        <textarea id="q" value={query} onChange={(e) => setQuery(e.target.value)} rows={2} className={`${input} w-full text-base`} placeholder="例如：经营改善、估值合理、走势稳定" />
+        <textarea id="q" value={query} onChange={(e) => {setQuery(e.target.value);setRules([]);setProposal(null);setConfirmed(false);setRun(null);}} rows={2} className={`${input} w-full text-base`} placeholder="例如：我觉得公司稳定，公司发展前景好" />
         <div className="flex flex-wrap gap-2">
           {EXAMPLES.map((e) => (
-            <button key={e.label} className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground hover:border-primary hover:text-primary" onClick={() => { setQuery(e.q); doParse(e.q); }}>{e.label}</button>
+            <button key={e.label} className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground hover:border-primary hover:text-primary" onClick={() => { setQuery(e.q);setRules([]);setProposal(null);setConfirmed(false);setRun(null); }}>{e.label}</button>
           ))}
         </div>
         <div className="flex flex-wrap gap-2">
-          <button className={btnPrimary} onClick={() => doParse()}>解析为规则</button>
+          <button className={btnPrimary} disabled={llmBusy||query.trim().length<3} onClick={doLLMParse}>{llmBusy?"AI 理解中…":"AI 理解并生成候选规则"}</button>
+          {llmError&&<span role="alert" className="text-sm text-destructive">{llmError}；不会伪装为 AI 成功。</span>}
         </div>
+        {proposal&&<div className="space-y-2 rounded-md border border-primary/30 p-3 text-sm"><strong>AI 识别的投资意图（仅为候选解释）</strong>{proposal.intents.map((x,i)=><p key={i}>「{x.phrase}」→ {x.meaning}{x.uncertainty&&`；不确定性：${x.uncertainty}`}</p>)}<p className="text-muted-foreground">规则阈值是模型建议，并非用户输入的事实；请修改并确认后执行。</p></div>}
         {notes.length > 0 && (
           <ul className="space-y-1 text-sm" aria-live="polite">
             {notes.map((n, i) => (
@@ -177,6 +195,7 @@ function Screener() {
               <ul>{conflicts.map((c, i) => <li key={i} className="ml-5 list-disc">{c.message}</li>)}</ul>
             </div>
           )}
+          <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={confirmed} onChange={e=>setConfirmed(e.target.checked)}/>我已检查并确认以上规则和阈值，可以执行</label>
           <div className="flex flex-wrap items-center gap-2 border-t border-border pt-3">
             <button className={btnPrimary} disabled={!canRun} onClick={doRun}>{run ? "重新运行筛选" : "运行筛选"}</button>
             {dirty && <span className="text-xs text-warning">规则已修改，结果尚未更新</span>}
