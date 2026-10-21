@@ -139,6 +139,15 @@ jobs:
                           "PASS: tools/list, count =",
                           len(tool_list)
                       )
+                      print("=== iFinD Available Tools ===")
+                      for tool in tool_list:
+                          if not isinstance(tool, dict):
+                              continue
+                          print(json.dumps({
+                              "name": tool.get("name"),
+                              "description": tool.get("description"),
+                              "inputSchema": tool.get("inputSchema")
+                          }, ensure_ascii=False, indent=2))
                   else:
                       failures.append("Invalid iFinD tools/list")
 
