@@ -1,8 +1,11 @@
 {
   "mode": "real",
   "provider": "Fuyao REST API",
-  "asOf": "1792575638000",
-  "fetchedAt": "2026-10-21T09:40:40.082680+00:00",
+  "sourceDocsUrl": "https://fuyao.aicubes.cn/docs/api-reference/valuations/",
+  "sourceApiPath": "/api/a-share/valuations/snapshot",
+  "sourceDisclosure": "sourceRecord 为接口响应中选取的原始字段；可公开点击的原数据库逐证券记录地址尚未验证，不能将 API 文档冒充原始记录。",
+  "asOf": "1792579214000",
+  "fetchedAt": "2026-10-21T10:40:16.310377+00:00",
   "scope": "5只预设A股中的有效记录，不代表全市场",
   "metrics": {
     "pe": {
@@ -18,6 +21,13 @@
   },
   "stocks": [
     {
+      "sourceRecord": {
+        "thscode": "600519.SH",
+        "name": "贵州茅台",
+        "pe_ttm": 20.104866,
+        "pb_mrq": 6.516203
+      },
+      "sourceEndpoint": "/api/a-share/valuations/snapshot",
       "code": "600519.SH",
       "name": "贵州茅台",
       "industry": "行业信息未验证",
@@ -43,6 +53,13 @@
       }
     },
     {
+      "sourceRecord": {
+        "thscode": "000858.SZ",
+        "name": "五粮液",
+        "pe_ttm": 21.361179,
+        "pb_mrq": 2.358843
+      },
+      "sourceEndpoint": "/api/a-share/valuations/snapshot",
       "code": "000858.SZ",
       "name": "五粮液",
       "industry": "行业信息未验证",
@@ -68,6 +85,13 @@
       }
     },
     {
+      "sourceRecord": {
+        "thscode": "601318.SH",
+        "name": "中国平安",
+        "pe_ttm": 5.819323,
+        "pb_mrq": 0.901786
+      },
+      "sourceEndpoint": "/api/a-share/valuations/snapshot",
       "code": "601318.SH",
       "name": "中国平安",
       "industry": "行业信息未验证",
@@ -93,6 +117,13 @@
       }
     },
     {
+      "sourceRecord": {
+        "thscode": "600036.SH",
+        "name": "招商银行",
+        "pe_ttm": 7.029157,
+        "pb_mrq": 0.931226
+      },
+      "sourceEndpoint": "/api/a-share/valuations/snapshot",
       "code": "600036.SH",
       "name": "招商银行",
       "industry": "行业信息未验证",
@@ -118,6 +149,13 @@
       }
     },
     {
+      "sourceRecord": {
+        "thscode": "000333.SZ",
+        "name": "美的集团",
+        "pe_ttm": 14.418746,
+        "pb_mrq": 3.021376
+      },
+      "sourceEndpoint": "/api/a-share/valuations/snapshot",
       "code": "000333.SZ",
       "name": "美的集团",
       "industry": "行业信息未验证",

@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "source": "Fuyao REST API",
+  "sourceFetchedAt": "2026-10-21T10:40:16.310377+00:00",
+  "sourceAsOf": "1792579214000",
+  "checkedAt": "2026-10-21T10:40:16.348981+00:00",
+  "snapshotUrl": "https://github.com/Mingzior/nlpStockWithStreategy/blob/main/code/site/data/stocks.json",
+  "strategies": [
+    {
+      "id": "pe-25",
+      "name": "市盈率不高于25（演示监控）",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "<=",
+          "value": 25
+        }
+      ],
+      "results": {
+        "600519.SH": {
+          "name": "贵州茅台",
+          "status": "included",
+          "checks": [
+            {
+              "metric": "pe",
+              "op": "<=",
+              "threshold": 25,
+              "value": 20.104866,
+              "result": "pass"
+            }
+          ]
+        },
+        "000858.SZ": {
+          "name": "五粮液",
+          "status": "included",
+          "checks": [
+            {
+              "metric": "pe",
+              "op": "<=",
+              "threshold": 25,
+              "value": 21.361179,
+              "result": "pass"
+            }
+          ]
+        },
+        "601318.SH": {
+          "name": "中国平安",
+          "status": "included",
+          "checks": [
+            {
+              "metric": "pe",
+              "op": "<=",
+              "threshold": 25,
+              "value": 5.819323,
+              "result": "pass"
+            }
+          ]
+        },
+        "600036.SH": {
+          "name": "招商银行",
+          "status": "included",
+          "checks": [
+            {
+              "metric": "pe",
+              "op": "<=",
+              "threshold": 25,
+              "value": 7.029157,
+              "result": "pass"
+            }
+          ]
+        },
+        "000333.SZ": {
+          "name": "美的集团",
+          "status": "included",
+          "checks": [
+            {
+              "metric": "pe",
+              "op": "<=",
+              "threshold": 25,
+              "value": 14.418746,
+              "result": "pass"
+            }
+          ]
+        }
+      },
+      "changes": [],
+      "baseline": "new_or_rules_changed"
+    }
+  ],
+  "notice": "状态变化不是收益回测或买卖建议；仅监控仓库中已启用策略"
+}
