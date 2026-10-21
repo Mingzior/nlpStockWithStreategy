@@ -162,6 +162,35 @@ jobs:
                   else:
                       failures.append("Invalid iFinD tools/list")
 
+                  print("=== iFinD indicators tools/call smoke test ===")
+                  indicators_call, _ = post_json(
+                      endpoint,
+                      {
+                          "jsonrpc": "2.0", "id": 4, "method": "tools/call",
+                          "params": {"name": "get_security_indicators", "arguments": {
+                              "market": "A股",
+                              "query": "贵州茅台最新报告期ROE和市盈率TTM"
+                          }}
+                      },
+                      headers
+                  )
+                  indicator_result = indicators_call.get("result", {})
+                  if not isinstance(indicator_result, dict) or indicator_result.get("isError"):
+                      failures.append("iFinD get_security_indicators tools/call returned error")
+                  else:
+                      indicator_blocks = indicator_result.get("content", [])
+                      print("PASS: indicators tools/call, content blocks =", len(indicator_blocks))
+                      for block in indicator_blocks[:1]:
+                          if isinstance(block, dict) and block.get("type") == "text":
+                              raw = block.get("text", "")
+                              try:
+                                  parsed = json.loads(raw)
+                                  print("Indicators JSON type:", type(parsed).__name__)
+                                  if isinstance(parsed, dict):
+                                      print("Indicators keys:", sorted(parsed.keys())[:30])
+                              except ValueError:
+                                  print("Indicators text chars:", len(raw), "(content suppressed)")
+
                   print("=== iFinD tools/call smoke test ===")
                   called, _ = post_json(
                       endpoint,
