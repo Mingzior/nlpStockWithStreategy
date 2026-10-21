@@ -8,11 +8,12 @@
 
 **公开体验**：打开 [GitHub Pages](https://mingzior.github.io/nlpStockWithStreategy/)，无需安装或登录。
 
-**静态版本地启动**：下载仓库后，在项目根目录运行 `python -m http.server 8000 --directory docs`，访问 `http://localhost:8000/`。也可以直接打开 `docs/index.html`。
+**静态版本地启动**：下载仓库后，在仓库根目录运行 `python -m http.server 8000 --directory code/site`，访问 `http://localhost:8000/`。也可以直接打开 `code/site/index.html`。
 
 **原始 React / TanStack Start 项目**（需要 Node.js 24 与 npm）：
 
 ```bash
+cd code
 npm install
 npm run dev
 npm test
@@ -26,7 +27,7 @@ npm run build
 | `FUYAO_API_KEY` | 扶摇 API 的服务端授权 | **不需要** |
 | `IFIND_MCP_AUTHORIZATION` | iFinD MCP 服务端授权 | **不需要** |
 
-示例见 `.env.example`。密钥只应存储在**服务端**环境，不能提交到 GitHub 或使用 `VITE_` 前缀注入浏览器。GitHub Actions Secrets 不会自动传给部署平台。
+示例见 `code/.env.example`。密钥只应存储在**服务端**环境，不能提交到 GitHub 或使用 `VITE_` 前缀注入浏览器。GitHub Actions Secrets 不会自动传给部署平台。
 
 ## 3. 产品选择
 
@@ -61,9 +62,9 @@ npm run build
 
 ## 仓库目录
 
-- `docs/index.html`：GitHub Pages 交互演示（浅色、简洁布局）。
-- `src/`：原始 React 应用、规则引擎、服务端 API 和测试。
+- `code/site/index.html`：GitHub Pages 交互演示（浅色、简洁布局）。
+- `code/src/`：原始 React 应用、规则引擎、服务端 API 和测试。
 - `.github/workflows/`：CI、Pages 发布与受控金融 API 验证工作流。
 - 根目录：交付文档及构建必需配置。
 
-**说明：Git 历史提交和 Actions 运行日志不会因删除当前文件而自动消失。** 为保证现有构建和发布可复现，暂保留根目录必要的 `package.json`、`vite.config.ts` 等工程文件；不应为追求恰好六个根目录条目而破坏构建。
+**说明：Git 历史提交和 Actions 运行日志不会因删除当前文件而自动消失。** 为保证现有构建和发布可复现，暂保留根目录必要的 `code/package.json`、`code/vite.config.ts` 等工程文件；不应为追求恰好六个根目录条目而破坏构建。
