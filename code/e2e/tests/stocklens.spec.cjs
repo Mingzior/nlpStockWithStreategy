@@ -14,15 +14,15 @@ test('自然语言默认示例完整筛选及逐项溯源', async ({page}) => {
  await expect(page.locator('#stock-results details').first()).toContainText('合成数据 v1');
 });
 test('模糊意图提示澄清且禁止无条件执行', async ({page}) => {
- await page.getByRole('button',{name:'模糊描述'}).click();await page.getByRole('button',{name:'解析为规则'}).click();
- await expect(page.locator('#notes')).toContainText('无法确定量化阈值');
+ await page.locator('#query').fill('好公司，值得买');await page.getByRole('button',{name:'解析为规则'}).click();
+ await expect(page.locator('#notes')).toContainText('未能将该想法可靠地转成数据条件');
  await expect(page.getByRole('button',{name:'运行筛选'})).toBeDisabled();
 });
 test('冲突识别与修改后恢复运行', async ({page}) => {
- await page.getByRole('button',{name:'冲突测试'}).click();await page.getByRole('button',{name:'解析为规则'}).click();
+ await page.locator('#query').fill('PE>=40，PE<=15');await page.getByRole('button',{name:'解析为规则'}).click();
  await expect(page.locator('#conflicts')).toContainText('矛盾区间');
  await expect(page.getByRole('button',{name:'运行筛选'})).toBeDisabled();
- await page.locator('.rule').last().locator('.val').fill('10');
+ await page.locator('.rule').last().locator('.val').fill('50');
  await page.locator('.rule').last().locator('.val').dispatchEvent('change');
  await expect(page.getByRole('button',{name:'运行筛选'})).toBeEnabled();
  await page.getByRole('button',{name:'运行筛选'}).click();
