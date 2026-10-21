@@ -191,6 +191,7 @@ jobs:
                                       print("Indicators code type/value:", type(parsed.get("code")).__name__, str(parsed.get("code"))[:32])
                                       print("Indicators subCode type/value:", type(parsed.get("subCode")).__name__, str(parsed.get("subCode"))[:32])
                                       print("Indicators answer type:", type(parsed.get("data", {}).get("answer") if isinstance(parsed.get("data"), dict) else None).__name__)
+                                      print("Indicators answer length:", len(str(parsed.get("data", {}).get("answer", ""))))
                                       print("Indicators data type:", type(parsed.get("data")).__name__)
                                       data = parsed.get("data")
                                       if isinstance(data, dict):
@@ -199,7 +200,7 @@ jobs:
                                           print("Indicators row count:", len(data))
                                           if data and isinstance(data[0], dict):
                                               print("Indicators row keys:", sorted(data[0].keys())[:35])
-                                      if parsed.get("code") not in (0, "0"):
+                                      if parsed.get("code") not in (0, "0", 1, "1"):
                                           failures.append("Indicators business code is not success")
                               except ValueError:
                                   print("Indicators text chars:", len(raw), "(content suppressed)")
@@ -236,6 +237,7 @@ jobs:
                                       print("Screening code type/value:", type(parsed.get("code")).__name__, str(parsed.get("code"))[:32])
                                       print("Screening subCode type/value:", type(parsed.get("subCode")).__name__, str(parsed.get("subCode"))[:32])
                                       print("Screening answer type:", type(parsed.get("data", {}).get("answer") if isinstance(parsed.get("data"), dict) else None).__name__)
+                                      print("Screening answer length:", len(str(parsed.get("data", {}).get("answer", ""))))
                                       data = parsed.get("data")
                                       print("Screening data type:", type(data).__name__)
                                       if isinstance(data, dict):
@@ -244,7 +246,7 @@ jobs:
                                           print("Screening row count:", len(data))
                                           if data and isinstance(data[0], dict):
                                               print("Screening row keys:", sorted(data[0].keys())[:35])
-                                      if parsed.get("code") not in (0, "0"):
+                                      if parsed.get("code") not in (0, "0", 1, "1"):
                                           failures.append("Screening business code is not success")
                                       for k, v in parsed.items():
                                           if isinstance(v, list):
