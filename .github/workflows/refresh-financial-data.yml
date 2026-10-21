@@ -5,12 +5,17 @@ on:
     - cron: '20 2 * * 1-5'
 permissions:
   contents: write
+  pages: write
+  id-token: write
 concurrency:
   group: fuyao-snapshot
   cancel-in-progress: false
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -22,10 +27,13 @@ jobs:
         env:
           FUYAO_API_KEY: ${{ secrets.FUYAO_API_KEY }}
         run: python scripts/fetch_fuyao_snapshot.py
+      - name: Evaluate enabled strategies and record status changes
+        run: python scripts/run_monitor.py
       - name: Validate JSON and stage snapshot
         run: |
           python -m json.tool code/site/data/stocks.json > /dev/null
-          git add code/site/data/stocks.json
+          python -m json.tool code/site/data/monitor-history.json > /dev/null
+          git add code/site/data/stocks.json code/site/data/monitor-history.json
       - name: Commit snapshot if changed
         run: |
           if git diff --cached --quiet; then
@@ -33,4 +41,13 @@ jobs:
           else
             git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m "data: refresh verified Fuyao valuation snapshot"
             git push
+      - name: Publish refreshed static site (GITHUB_TOKEN commits do not trigger push workflows)
+        if: success()
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: code/site
+      - name: Deploy refreshed static site
+        id: deployment
+        if: success()
+        uses: actions/deploy-pages@v4
           fi
