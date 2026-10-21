@@ -21,6 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Validate data and compliance tests
+        run: python3 -m unittest discover -s tests -p 'test_snapshot.py' -v
       - name: Verify standalone page
         run: |
           test -s code/site/index.html
