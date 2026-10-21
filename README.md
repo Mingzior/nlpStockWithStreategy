@@ -60,11 +60,25 @@ npm run build
 - 浏览器 E2E、无障碍、多设备视觉回归及正式性能测试。
 - PRD 的正式需求研究与详细交互设计（[PRD 待定](PRD.md)）。
 
+## 浏览器端到端测试
+
+在仓库根目录执行：
+
+```bash
+cd code/e2e
+npm install
+npx playwright install chromium
+npm test
+```
+
+GitHub Actions 的 [Browser E2E](https://github.com/Mingzior/nlpStockWithStreategy/actions/workflows/e2e.yml) 在 Chromium 中实际打开 `code/site/index.html` 的本地 HTTP 服务，模拟解析、编辑、冲突、缺失、对比、保存和无金融 API 请求。测试报告以 Actions artifact 形式保留；测试是否通过以运行结果为准。
+
 ## 仓库目录
 
 - `code/site/index.html`：GitHub Pages 交互演示（浅色、简洁布局）。
 - `code/src/`：原始 React 应用、规则引擎、服务端 API 和测试。
-- `.github/workflows/`：CI、Pages 发布与受控金融 API 验证工作流。
+- `code/e2e/`：Playwright Chromium 真实浏览器交互测试。
+- `.github/workflows/`：CI、Pages 发布、浏览器 E2E 与受控金融 API 验证工作流。
 - 根目录：交付文档及构建必需配置。
 
-**说明：Git 历史提交和 Actions 运行日志不会因删除当前文件而自动消失。** 为保证现有构建和发布可复现，暂保留根目录必要的 `code/package.json`、`code/vite.config.ts` 等工程文件；不应为追求恰好六个根目录条目而破坏构建。
+**仓库根目录仅保留五份交付文档与 `code/`（以及 GitHub Actions 必需的隐藏 `.github/`）。** Git 历史提交和 Actions 运行日志不会因目录重组而自动消失。
