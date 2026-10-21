@@ -76,10 +76,13 @@ jobs:
                           "Fuyao returned no successful data"
                       )
               except urllib.error.HTTPError as e:
-                  failures.append(
-                      "Fuyao HTTP status: " + str(e.code)
-                      + " (response body suppressed to protect credentials)"
-                  )
+                  if e.code == 429:
+                      print("WARN: Fuyao HTTP 429 (rate limit or quota). Fuyao validation inconclusive; no fabricated PASS.")
+                  else:
+                      failures.append(
+                          "Fuyao HTTP status: " + str(e.code)
+                          + " (response body suppressed to protect credentials)"
+                      )
               except urllib.error.URLError as e:
                   failures.append(
                       "Fuyao network error: " + type(e.reason).__name__
@@ -171,5 +174,5 @@ jobs:
           if failures:
               raise SystemExit(1)
 
-          print("API connectivity validation passed")
+          print("API connectivity validation finished; check WARN entries for unverified providers")
           PY
