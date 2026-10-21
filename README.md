@@ -82,3 +82,14 @@ GitHub Actions 的 [Browser E2E](https://github.com/Mingzior/nlpStockWithStreate
 - 根目录：交付文档及构建必需配置。
 
 **仓库根目录仅保留五份交付文档与 `code/`（以及 GitHub Actions 必需的隐藏 `.github/`）。** Git 历史提交和 Actions 运行日志不会因目录重组而自动消失。
+
+
+## 三层架构实施状态（2026-10-21）
+
+**LLM 候选生成权**：`code/src/routes/api/intent.ts` 是服务端 LLM 接口；仅生成意图、候选口径、澄清问题，经过 `code/src/lib/three-layer.ts` 的严格 Schema 校验及 IR 编译。服务端需配置 `OPENAI_API_KEY`，否则明确返回 503，不伪装为 AI。用户必须勾选确认规则才能执行。
+
+**确定性引擎判定权**：`code/src/lib/three-layer.ts` 校验字段、运算符、数值与冲突，拒绝非法 IR；调用 `code/src/lib/engine.ts` 对逐条指标进行确定性筛选，并按入选→未知→排除排序。LLM 不参与最终判定。测试见 `code/src/test/three-layer.test.ts`。
+
+**金融数据工具事实权**：`code/src/lib/adapters.ts` 提供合成数据适配器、扶摇真实数据适配器及尚未完成的 iFinD 数据适配器。真实适配器不自动回退合成数据；扶摇当前仅能提供有限的估值字段，其余缺失，不得臆造。
+
+**重要部署区别**：公开的 GitHub Pages URL 部署的是 `code/site/index.html` 静态离线演示，**不具备服务端 LLM 或 MCP 能力**，不能宣称三层架构已经在该公开 URL 端到端上线。三层架构的 LLM→IR→引擎已接入 `code/src/routes/index.tsx` React 服务端版本，需部署支持 Node 服务端路由的平台并安全配置密钥后才能使用。真实数据完整指标覆盖和 PIT 回测仍未完成。请勿在浏览器或仓库提交 API 密钥。
