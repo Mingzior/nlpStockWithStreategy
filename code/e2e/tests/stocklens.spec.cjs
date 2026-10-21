@@ -80,8 +80,8 @@ test('普通用户语言映射为可编辑量化条件并可筛选',async({page}
  await page.locator('#query').fill('我想找经营稳定、发展前景好、风险比较低的公司');
  await expect(page.locator('.rule')).toHaveCount(0);
  await page.getByRole('button',{name:'解析为规则'}).click();
- await expect(page.locator('.rule')).toHaveCount(5);
- await expect(page.locator('#notes')).toContainText('候选量化条件');
+ await expect(page.locator('.rule')).toHaveCount(6);
+ await expect(page.locator('#notes')).toContainText('候选数据条件');
  await page.getByRole('button',{name:'运行筛选'}).click();
  await expect(page.locator('.stock')).toHaveCount(11);
 });
@@ -104,4 +104,18 @@ test('规则变更显示入选数量前后变化和具体股票状态变化',asy
  await expect(page.locator('#impact')).toContainText('原入选');
  await expect(page.locator('#impact')).toContainText('状态发生变化');
  await expect(page.locator('#impact li').first()).toBeVisible();
+});
+
+test('用户原话「我觉得公司稳定，公司发展前景好」生成四条可编辑条件',async({page})=>{
+ await page.locator('#query').fill('我觉得公司稳定，公司发展前景好');
+ await expect(page.locator('.rule')).toHaveCount(0);
+ await page.getByRole('button',{name:'解析为规则'}).click();
+ await expect(page.locator('.rule')).toHaveCount(4);
+ await expect(page.locator('#notes')).toContainText('公司经营稳定');
+ await expect(page.locator('#notes')).toContainText('发展前景好');
+ await page.getByRole('button',{name:'运行筛选'}).click();
+ await expect(page.locator('.stock')).toHaveCount(11);
+ await expect(page.locator('.result-group').first()).toContainText('入选');
+ const statuses=await page.locator('.stock').evaluateAll(nodes=>nodes.map(n=>n.dataset.status));
+ expect(statuses).toEqual([...statuses].sort((a,b)=>({included:0,unknown:1,excluded:2}[a]-{included:0,unknown:1,excluded:2}[b])));
 });
