@@ -17,8 +17,11 @@ jobs:
       - name: Use fixed npm Arborist
         run: npm install --global npm@11.19.1
       - name: Install dependencies
+        working-directory: code
         run: npm install --no-audit --no-fund
       - name: Test
+        working-directory: code
         run: npm test -- --run
       - name: Build
+        working-directory: code
         run: npm run build
