@@ -1,0 +1,3479 @@
+{
+  "schemaVersion": 1,
+  "description": "216条人工整理的中文选股查询模板。不是LLM生成结果；阈值仅为可编辑建议，用户确认后执行。",
+  "count": 216,
+  "items": [
+    {
+      "id": "Q001",
+      "query": "市盈率较低",
+      "category": "估值与市盈率",
+      "interpretation": "“市盈率较低”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q002",
+      "query": "PE不要太高",
+      "category": "估值与市盈率",
+      "interpretation": "“PE不要太高”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q003",
+      "query": "想找低市盈率公司",
+      "category": "估值与市盈率",
+      "interpretation": "“想找低市盈率公司”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q004",
+      "query": "股票估值便宜一些",
+      "category": "估值与市盈率",
+      "interpretation": "“股票估值便宜一些”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q005",
+      "query": "不要买市盈率过高的股票",
+      "category": "估值与市盈率",
+      "interpretation": "“不要买市盈率过高的股票”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q006",
+      "query": "偏好低PE的公司",
+      "category": "估值与市盈率",
+      "interpretation": "“偏好低PE的公司”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q007",
+      "query": "市盈率最好在合理范围",
+      "category": "估值与市盈率",
+      "interpretation": "“市盈率最好在合理范围”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q008",
+      "query": "寻找估值不贵的企业",
+      "category": "估值与市盈率",
+      "interpretation": "“寻找估值不贵的企业”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q009",
+      "query": "市盈率小于二十倍",
+      "category": "估值与市盈率",
+      "interpretation": "“市盈率小于二十倍”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "<=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q010",
+      "query": "关注市盈率较低的股票",
+      "category": "估值与市盈率",
+      "interpretation": "“关注市盈率较低的股票”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "<=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q011",
+      "query": "希望盈利估值更便宜",
+      "category": "估值与市盈率",
+      "interpretation": "“希望盈利估值更便宜”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "<=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q012",
+      "query": "挑选PE适中的公司",
+      "category": "估值与市盈率",
+      "interpretation": "“挑选PE适中的公司”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "<=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q013",
+      "query": "想要相对低估值的标的",
+      "category": "估值与市盈率",
+      "interpretation": "“想要相对低估值的标的”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "<=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q014",
+      "query": "排除高市盈率公司",
+      "category": "估值与市盈率",
+      "interpretation": "“排除高市盈率公司”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "<=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q015",
+      "query": "我不想买估值太贵的股票",
+      "category": "估值与市盈率",
+      "interpretation": "“我不想买估值太贵的股票”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "<=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q016",
+      "query": "用市盈率控制估值风险",
+      "category": "估值与市盈率",
+      "interpretation": "“用市盈率控制估值风险”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "<=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q017",
+      "query": "寻找PE低于行业热门股的公司",
+      "category": "估值与市盈率",
+      "interpretation": "“寻找PE低于行业热门股的公司”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "between",
+          "value": 8,
+          "value2": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q018",
+      "query": "希望PE在合理区间",
+      "category": "估值与市盈率",
+      "interpretation": "“希望PE在合理区间”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "between",
+          "value": 8,
+          "value2": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q019",
+      "query": "选择市盈率偏低的公司",
+      "category": "估值与市盈率",
+      "interpretation": "“选择市盈率偏低的公司”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "between",
+          "value": 8,
+          "value2": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q020",
+      "query": "优先看市盈率不高的股票",
+      "category": "估值与市盈率",
+      "interpretation": "“优先看市盈率不高的股票”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "between",
+          "value": 8,
+          "value2": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q021",
+      "query": "选估值有一定安全边际的公司",
+      "category": "估值与市盈率",
+      "interpretation": "“选估值有一定安全边际的公司”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "between",
+          "value": 8,
+          "value2": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q022",
+      "query": "不考虑市盈率特别高的企业",
+      "category": "估值与市盈率",
+      "interpretation": "“不考虑市盈率特别高的企业”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "between",
+          "value": 8,
+          "value2": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q023",
+      "query": "希望股票PE不超过二十五",
+      "category": "估值与市盈率",
+      "interpretation": "“希望股票PE不超过二十五”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "between",
+          "value": 8,
+          "value2": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q024",
+      "query": "我想找PE在八到三十之间的公司",
+      "category": "估值与市盈率",
+      "interpretation": "“我想找PE在八到三十之间的公司”映射为估值与市盈率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "between",
+          "value": 8,
+          "value2": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q025",
+      "query": "市净率比较低",
+      "category": "估值与市净率",
+      "interpretation": "“市净率比较低”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "<=",
+          "value": 2
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q026",
+      "query": "PB不要太高",
+      "category": "估值与市净率",
+      "interpretation": "“PB不要太高”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "<=",
+          "value": 2
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q027",
+      "query": "想找低市净率公司",
+      "category": "估值与市净率",
+      "interpretation": "“想找低市净率公司”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "<=",
+          "value": 2
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q028",
+      "query": "净资产估值便宜",
+      "category": "估值与市净率",
+      "interpretation": "“净资产估值便宜”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "<=",
+          "value": 2
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q029",
+      "query": "市净率小于两倍",
+      "category": "估值与市净率",
+      "interpretation": "“市净率小于两倍”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "<=",
+          "value": 2
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q030",
+      "query": "优先低PB的股票",
+      "category": "估值与市净率",
+      "interpretation": "“优先低PB的股票”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "<=",
+          "value": 2
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q031",
+      "query": "希望PB控制在三倍以内",
+      "category": "估值与市净率",
+      "interpretation": "“希望PB控制在三倍以内”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "<=",
+          "value": 2
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q032",
+      "query": "寻找市净率合理的企业",
+      "category": "估值与市净率",
+      "interpretation": "“寻找市净率合理的企业”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "<=",
+          "value": 2
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q033",
+      "query": "我不想买高PB公司",
+      "category": "估值与市净率",
+      "interpretation": "“我不想买高PB公司”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "<=",
+          "value": 3
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q034",
+      "query": "挑选市净率较低的标的",
+      "category": "估值与市净率",
+      "interpretation": "“挑选市净率较低的标的”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "<=",
+          "value": 3
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q035",
+      "query": "用PB来筛选股票",
+      "category": "估值与市净率",
+      "interpretation": "“用PB来筛选股票”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "<=",
+          "value": 3
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q036",
+      "query": "关注市净率不贵的公司",
+      "category": "估值与市净率",
+      "interpretation": "“关注市净率不贵的公司”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "<=",
+          "value": 3
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q037",
+      "query": "选择PB适中的股票",
+      "category": "估值与市净率",
+      "interpretation": "“选择PB适中的股票”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "<=",
+          "value": 3
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q038",
+      "query": "希望股价相对净资产不贵",
+      "category": "估值与市净率",
+      "interpretation": "“希望股价相对净资产不贵”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "<=",
+          "value": 3
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q039",
+      "query": "市净率低一些更好",
+      "category": "估值与市净率",
+      "interpretation": "“市净率低一些更好”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "<=",
+          "value": 3
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q040",
+      "query": "剔除市净率太高的企业",
+      "category": "估值与市净率",
+      "interpretation": "“剔除市净率太高的企业”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "<=",
+          "value": 3
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q041",
+      "query": "我偏好净资产估值较低的股票",
+      "category": "估值与市净率",
+      "interpretation": "“我偏好净资产估值较低的股票”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "between",
+          "value": 1,
+          "value2": 3
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q042",
+      "query": "寻找PB低于一点五的公司",
+      "category": "估值与市净率",
+      "interpretation": "“寻找PB低于一点五的公司”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "between",
+          "value": 1,
+          "value2": 3
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q043",
+      "query": "优先考虑PB小于二的股票",
+      "category": "估值与市净率",
+      "interpretation": "“优先考虑PB小于二的股票”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "between",
+          "value": 1,
+          "value2": 3
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q044",
+      "query": "低市净率的上市公司",
+      "category": "估值与市净率",
+      "interpretation": "“低市净率的上市公司”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "between",
+          "value": 1,
+          "value2": 3
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q045",
+      "query": "挑选净资产估值有优势的公司",
+      "category": "估值与市净率",
+      "interpretation": "“挑选净资产估值有优势的公司”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "between",
+          "value": 1,
+          "value2": 3
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q046",
+      "query": "希望PB不要超过二点五",
+      "category": "估值与市净率",
+      "interpretation": "“希望PB不要超过二点五”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "between",
+          "value": 1,
+          "value2": 3
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q047",
+      "query": "我想看市净率在一到三之间的股票",
+      "category": "估值与市净率",
+      "interpretation": "“我想看市净率在一到三之间的股票”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "between",
+          "value": 1,
+          "value2": 3
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q048",
+      "query": "市净率最好别太高",
+      "category": "估值与市净率",
+      "interpretation": "“市净率最好别太高”映射为估值与市净率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "pb",
+          "op": "between",
+          "value": 1,
+          "value2": 3
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "real_snapshot"
+    },
+    {
+      "id": "Q049",
+      "query": "盈利能力强",
+      "category": "盈利能力",
+      "interpretation": "“盈利能力强”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 12
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q050",
+      "query": "ROE比较高",
+      "category": "盈利能力",
+      "interpretation": "“ROE比较高”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 12
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q051",
+      "query": "净资产收益率高",
+      "category": "盈利能力",
+      "interpretation": "“净资产收益率高”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 12
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q052",
+      "query": "想找赚钱能力强的公司",
+      "category": "盈利能力",
+      "interpretation": "“想找赚钱能力强的公司”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 12
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q053",
+      "query": "ROE不低于百分之十五",
+      "category": "盈利能力",
+      "interpretation": "“ROE不低于百分之十五”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 12
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q054",
+      "query": "优先选择高ROE企业",
+      "category": "盈利能力",
+      "interpretation": "“优先选择高ROE企业”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 12
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q055",
+      "query": "希望股东权益回报较高",
+      "category": "盈利能力",
+      "interpretation": "“希望股东权益回报较高”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 12
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q056",
+      "query": "公司资本回报效率好",
+      "category": "盈利能力",
+      "interpretation": "“公司资本回报效率好”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 12
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q057",
+      "query": "净资产收益率至少百分之十二",
+      "category": "盈利能力",
+      "interpretation": "“净资产收益率至少百分之十二”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q058",
+      "query": "挑选盈利效率较好的股票",
+      "category": "盈利能力",
+      "interpretation": "“挑选盈利效率较好的股票”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q059",
+      "query": "公司用股东资金赚钱能力强",
+      "category": "盈利能力",
+      "interpretation": "“公司用股东资金赚钱能力强”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q060",
+      "query": "我重视ROE指标",
+      "category": "盈利能力",
+      "interpretation": "“我重视ROE指标”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q061",
+      "query": "希望ROE持续表现较好",
+      "category": "盈利能力",
+      "interpretation": "“希望ROE持续表现较好”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q062",
+      "query": "选择ROE较高的上市公司",
+      "category": "盈利能力",
+      "interpretation": "“选择ROE较高的上市公司”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q063",
+      "query": "不考虑ROE太低的企业",
+      "category": "盈利能力",
+      "interpretation": "“不考虑ROE太低的企业”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q064",
+      "query": "净资产收益率达到两位数",
+      "category": "盈利能力",
+      "interpretation": "“净资产收益率达到两位数”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q065",
+      "query": "想找ROE超过百分之十的股票",
+      "category": "盈利能力",
+      "interpretation": "“想找ROE超过百分之十的股票”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q066",
+      "query": "我更喜欢盈利质量好的公司",
+      "category": "盈利能力",
+      "interpretation": "“我更喜欢盈利质量好的公司”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q067",
+      "query": "希望净资产回报率不错",
+      "category": "盈利能力",
+      "interpretation": "“希望净资产回报率不错”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q068",
+      "query": "用ROE衡量企业盈利能力",
+      "category": "盈利能力",
+      "interpretation": "“用ROE衡量企业盈利能力”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q069",
+      "query": "挑选股东回报效率较高的公司",
+      "category": "盈利能力",
+      "interpretation": "“挑选股东回报效率较高的公司”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q070",
+      "query": "ROE至少百分之八",
+      "category": "盈利能力",
+      "interpretation": "“ROE至少百分之八”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q071",
+      "query": "盈利能力不要太弱",
+      "category": "盈利能力",
+      "interpretation": "“盈利能力不要太弱”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q072",
+      "query": "希望ROE达到百分之二十",
+      "category": "盈利能力",
+      "interpretation": "“希望ROE达到百分之二十”映射为盈利能力的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "roe",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q073",
+      "query": "营业收入增长快",
+      "category": "营业收入成长",
+      "interpretation": "“营业收入增长快”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q074",
+      "query": "营收增速高",
+      "category": "营业收入成长",
+      "interpretation": "“营收增速高”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q075",
+      "query": "公司销售收入成长好",
+      "category": "营业收入成长",
+      "interpretation": "“公司销售收入成长好”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q076",
+      "query": "希望营收同比增长超过百分之十五",
+      "category": "营业收入成长",
+      "interpretation": "“希望营收同比增长超过百分之十五”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q077",
+      "query": "寻找高营收增长企业",
+      "category": "营业收入成长",
+      "interpretation": "“寻找高营收增长企业”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q078",
+      "query": "营收保持正增长",
+      "category": "营业收入成长",
+      "interpretation": "“营收保持正增长”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q079",
+      "query": "收入增速最好两位数",
+      "category": "营业收入成长",
+      "interpretation": "“收入增速最好两位数”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q080",
+      "query": "优先考虑营业收入增长的公司",
+      "category": "营业收入成长",
+      "interpretation": "“优先考虑营业收入增长的公司”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q081",
+      "query": "希望公司业务规模扩张",
+      "category": "营业收入成长",
+      "interpretation": "“希望公司业务规模扩张”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q082",
+      "query": "我看重收入成长性",
+      "category": "营业收入成长",
+      "interpretation": "“我看重收入成长性”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q083",
+      "query": "营收同比至少百分之十",
+      "category": "营业收入成长",
+      "interpretation": "“营收同比至少百分之十”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q084",
+      "query": "选择营收增长较快的股票",
+      "category": "营业收入成长",
+      "interpretation": "“选择营收增长较快的股票”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q085",
+      "query": "寻找营业收入同比为正的公司",
+      "category": "营业收入成长",
+      "interpretation": "“寻找营业收入同比为正的公司”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q086",
+      "query": "企业收入增长势头不错",
+      "category": "营业收入成长",
+      "interpretation": "“企业收入增长势头不错”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q087",
+      "query": "收入增长不能太慢",
+      "category": "营业收入成长",
+      "interpretation": "“收入增长不能太慢”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q088",
+      "query": "我想找高成长公司",
+      "category": "营业收入成长",
+      "interpretation": "“我想找高成长公司”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q089",
+      "query": "公司发展前景好",
+      "category": "营业收入成长",
+      "interpretation": "“公司发展前景好”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q090",
+      "query": "希望未来业务增长有潜力",
+      "category": "营业收入成长",
+      "interpretation": "“希望未来业务增长有潜力”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q091",
+      "query": "公司销售额增速较高",
+      "category": "营业收入成长",
+      "interpretation": "“公司销售额增速较高”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q092",
+      "query": "营收同比增长二十以上",
+      "category": "营业收入成长",
+      "interpretation": "“营收同比增长二十以上”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q093",
+      "query": "关注收入增长强劲的企业",
+      "category": "营业收入成长",
+      "interpretation": "“关注收入增长强劲的企业”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q094",
+      "query": "挑选营业收入增长明显的公司",
+      "category": "营业收入成长",
+      "interpretation": "“挑选营业收入增长明显的公司”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q095",
+      "query": "我偏好营收扩张的股票",
+      "category": "营业收入成长",
+      "interpretation": "“我偏好营收扩张的股票”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q096",
+      "query": "希望营收增速达到百分之二十五",
+      "category": "营业收入成长",
+      "interpretation": "“希望营收增速达到百分之二十五”映射为营业收入成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "revenue_growth",
+          "op": ">=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q097",
+      "query": "净利润增长快",
+      "category": "净利润成长",
+      "interpretation": "“净利润增长快”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 0
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q098",
+      "query": "利润同比增速高",
+      "category": "净利润成长",
+      "interpretation": "“利润同比增速高”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 0
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q099",
+      "query": "公司净利润正增长",
+      "category": "净利润成长",
+      "interpretation": "“公司净利润正增长”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 0
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q100",
+      "query": "希望净利润同比超过百分之十",
+      "category": "净利润成长",
+      "interpretation": "“希望净利润同比超过百分之十”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 0
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q101",
+      "query": "盈利增长比较明显",
+      "category": "净利润成长",
+      "interpretation": "“盈利增长比较明显”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 0
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q102",
+      "query": "寻找利润增速快的企业",
+      "category": "净利润成长",
+      "interpretation": "“寻找利润增速快的企业”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 0
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q103",
+      "query": "公司业绩持续向好",
+      "category": "净利润成长",
+      "interpretation": "“公司业绩持续向好”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 0
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q104",
+      "query": "净利润增长率不低于百分之十五",
+      "category": "净利润成长",
+      "interpretation": "“净利润增长率不低于百分之十五”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 0
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q105",
+      "query": "优先选择利润增长的股票",
+      "category": "净利润成长",
+      "interpretation": "“优先选择利润增长的股票”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q106",
+      "query": "企业利润同比提升",
+      "category": "净利润成长",
+      "interpretation": "“企业利润同比提升”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q107",
+      "query": "希望盈利增长达到两位数",
+      "category": "净利润成长",
+      "interpretation": "“希望盈利增长达到两位数”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q108",
+      "query": "净利润同比至少百分之五",
+      "category": "净利润成长",
+      "interpretation": "“净利润同比至少百分之五”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q109",
+      "query": "我重视利润成长",
+      "category": "净利润成长",
+      "interpretation": "“我重视利润成长”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q110",
+      "query": "寻找净利润同比增长的公司",
+      "category": "净利润成长",
+      "interpretation": "“寻找净利润同比增长的公司”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q111",
+      "query": "公司盈利扩张较快",
+      "category": "净利润成长",
+      "interpretation": "“公司盈利扩张较快”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q112",
+      "query": "净利润增速越高越好",
+      "category": "净利润成长",
+      "interpretation": "“净利润增速越高越好”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q113",
+      "query": "想找利润增长较稳的企业",
+      "category": "净利润成长",
+      "interpretation": "“想找利润增长较稳的企业”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q114",
+      "query": "希望净利润增长超过百分之二十",
+      "category": "净利润成长",
+      "interpretation": "“希望净利润增长超过百分之二十”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q115",
+      "query": "业绩增长比较好",
+      "category": "净利润成长",
+      "interpretation": "“业绩增长比较好”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q116",
+      "query": "关注净利润增长强劲的公司",
+      "category": "净利润成长",
+      "interpretation": "“关注净利润增长强劲的公司”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q117",
+      "query": "利润增长不应为负",
+      "category": "净利润成长",
+      "interpretation": "“利润增长不应为负”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q118",
+      "query": "我想找盈利改善的公司",
+      "category": "净利润成长",
+      "interpretation": "“我想找盈利改善的公司”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q119",
+      "query": "优先净利润增速高的企业",
+      "category": "净利润成长",
+      "interpretation": "“优先净利润增速高的企业”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q120",
+      "query": "净利润同比达到百分之二十五",
+      "category": "净利润成长",
+      "interpretation": "“净利润同比达到百分之二十五”映射为净利润成长的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "net_profit_growth",
+          "op": ">=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q121",
+      "query": "毛利率较高",
+      "category": "毛利率",
+      "interpretation": "“毛利率较高”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q122",
+      "query": "产品毛利高",
+      "category": "毛利率",
+      "interpretation": "“产品毛利高”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q123",
+      "query": "公司毛利水平不错",
+      "category": "毛利率",
+      "interpretation": "“公司毛利水平不错”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q124",
+      "query": "希望毛利率超过百分之四十",
+      "category": "毛利率",
+      "interpretation": "“希望毛利率超过百分之四十”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q125",
+      "query": "寻找高毛利企业",
+      "category": "毛利率",
+      "interpretation": "“寻找高毛利企业”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q126",
+      "query": "主营业务毛利率高",
+      "category": "毛利率",
+      "interpretation": "“主营业务毛利率高”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q127",
+      "query": "毛利率至少百分之三十",
+      "category": "毛利率",
+      "interpretation": "“毛利率至少百分之三十”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q128",
+      "query": "挑选产品附加值较高的公司",
+      "category": "毛利率",
+      "interpretation": "“挑选产品附加值较高的公司”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q129",
+      "query": "公司产品利润空间大",
+      "category": "毛利率",
+      "interpretation": "“公司产品利润空间大”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 40
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q130",
+      "query": "优先选择高毛利股票",
+      "category": "毛利率",
+      "interpretation": "“优先选择高毛利股票”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 40
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q131",
+      "query": "毛利率不要太低",
+      "category": "毛利率",
+      "interpretation": "“毛利率不要太低”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 40
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q132",
+      "query": "我关注毛利水平",
+      "category": "毛利率",
+      "interpretation": "“我关注毛利水平”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 40
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q133",
+      "query": "寻找毛利率不低于百分之二十五的企业",
+      "category": "毛利率",
+      "interpretation": "“寻找毛利率不低于百分之二十五的企业”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 40
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q134",
+      "query": "希望企业有较强定价能力",
+      "category": "毛利率",
+      "interpretation": "“希望企业有较强定价能力”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 40
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q135",
+      "query": "主营业务赚钱空间较大",
+      "category": "毛利率",
+      "interpretation": "“主营业务赚钱空间较大”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 40
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q136",
+      "query": "产品毛利率达到百分之五十",
+      "category": "毛利率",
+      "interpretation": "“产品毛利率达到百分之五十”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 40
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q137",
+      "query": "选择毛利率较高的上市公司",
+      "category": "毛利率",
+      "interpretation": "“选择毛利率较高的上市公司”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 50
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q138",
+      "query": "公司毛利率表现较好",
+      "category": "毛利率",
+      "interpretation": "“公司毛利率表现较好”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 50
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q139",
+      "query": "毛利率越高越好",
+      "category": "毛利率",
+      "interpretation": "“毛利率越高越好”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 50
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q140",
+      "query": "希望公司毛利有优势",
+      "category": "毛利率",
+      "interpretation": "“希望公司毛利有优势”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 50
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q141",
+      "query": "我想找毛利率在三十以上的股票",
+      "category": "毛利率",
+      "interpretation": "“我想找毛利率在三十以上的股票”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 50
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q142",
+      "query": "企业毛利率至少百分之三十五",
+      "category": "毛利率",
+      "interpretation": "“企业毛利率至少百分之三十五”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 50
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q143",
+      "query": "关注高毛利的公司",
+      "category": "毛利率",
+      "interpretation": "“关注高毛利的公司”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 50
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q144",
+      "query": "不考虑毛利率很低的企业",
+      "category": "毛利率",
+      "interpretation": "“不考虑毛利率很低的企业”映射为毛利率的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "gross_margin",
+          "op": ">=",
+          "value": 50
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q145",
+      "query": "资产负债率较低",
+      "category": "负债与财务稳健",
+      "interpretation": "“资产负债率较低”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 40
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q146",
+      "query": "公司负债不要太高",
+      "category": "负债与财务稳健",
+      "interpretation": "“公司负债不要太高”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 40
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q147",
+      "query": "财务结构稳健",
+      "category": "负债与财务稳健",
+      "interpretation": "“财务结构稳健”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 40
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q148",
+      "query": "资产负债率低于百分之五十",
+      "category": "负债与财务稳健",
+      "interpretation": "“资产负债率低于百分之五十”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 40
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q149",
+      "query": "寻找低负债公司",
+      "category": "负债与财务稳健",
+      "interpretation": "“寻找低负债公司”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 40
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q150",
+      "query": "公司财务压力较小",
+      "category": "负债与财务稳健",
+      "interpretation": "“公司财务压力较小”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 40
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q151",
+      "query": "希望资产负债率不超过百分之六十",
+      "category": "负债与财务稳健",
+      "interpretation": "“希望资产负债率不超过百分之六十”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 40
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q152",
+      "query": "优先负债率低的股票",
+      "category": "负债与财务稳健",
+      "interpretation": "“优先负债率低的股票”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 40
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q153",
+      "query": "企业杠杆不要太高",
+      "category": "负债与财务稳健",
+      "interpretation": "“企业杠杆不要太高”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 50
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q154",
+      "query": "资产负债率控制在四十以内",
+      "category": "负债与财务稳健",
+      "interpretation": "“资产负债率控制在四十以内”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 50
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q155",
+      "query": "挑选负债负担较轻的企业",
+      "category": "负债与财务稳健",
+      "interpretation": "“挑选负债负担较轻的企业”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 50
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q156",
+      "query": "我希望公司财务健康",
+      "category": "负债与财务稳健",
+      "interpretation": "“我希望公司财务健康”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 50
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q157",
+      "query": "资产负债率越低越好",
+      "category": "负债与财务稳健",
+      "interpretation": "“资产负债率越低越好”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 50
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q158",
+      "query": "寻找财务杠杆较低的公司",
+      "category": "负债与财务稳健",
+      "interpretation": "“寻找财务杠杆较低的公司”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 50
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q159",
+      "query": "不考虑高负债企业",
+      "category": "负债与财务稳健",
+      "interpretation": "“不考虑高负债企业”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 50
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q160",
+      "query": "我比较在意资产负债率",
+      "category": "负债与财务稳健",
+      "interpretation": "“我比较在意资产负债率”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 50
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q161",
+      "query": "希望资产负债率低于百分之三十",
+      "category": "负债与财务稳健",
+      "interpretation": "“希望资产负债率低于百分之三十”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 60
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q162",
+      "query": "公司债务水平适中",
+      "category": "负债与财务稳健",
+      "interpretation": "“公司债务水平适中”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 60
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q163",
+      "query": "挑选负债率不高的股票",
+      "category": "负债与财务稳健",
+      "interpretation": "“挑选负债率不高的股票”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 60
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q164",
+      "query": "企业财务风险尽量低",
+      "category": "负债与财务稳健",
+      "interpretation": "“企业财务风险尽量低”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 60
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q165",
+      "query": "我想找低杠杆公司",
+      "category": "负债与财务稳健",
+      "interpretation": "“我想找低杠杆公司”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 60
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q166",
+      "query": "公司负债占资产比例不高",
+      "category": "负债与财务稳健",
+      "interpretation": "“公司负债占资产比例不高”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 60
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q167",
+      "query": "资产负债率低于百分之四十五",
+      "category": "负债与财务稳健",
+      "interpretation": "“资产负债率低于百分之四十五”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 60
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q168",
+      "query": "优先财务比较稳健的公司",
+      "category": "负债与财务稳健",
+      "interpretation": "“优先财务比较稳健的公司”映射为负债与财务稳健的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "debt_ratio",
+          "op": "<=",
+          "value": 60
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q169",
+      "query": "股价波动小",
+      "category": "历史波动风险",
+      "interpretation": "“股价波动小”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q170",
+      "query": "走势比较稳定",
+      "category": "历史波动风险",
+      "interpretation": "“走势比较稳定”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q171",
+      "query": "历史波动率低",
+      "category": "历史波动风险",
+      "interpretation": "“历史波动率低”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q172",
+      "query": "希望股票不要大起大落",
+      "category": "历史波动风险",
+      "interpretation": "“希望股票不要大起大落”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q173",
+      "query": "选择低波动股票",
+      "category": "历史波动风险",
+      "interpretation": "“选择低波动股票”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q174",
+      "query": "六十日波动率不高",
+      "category": "历史波动风险",
+      "interpretation": "“六十日波动率不高”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q175",
+      "query": "我偏好价格稳定的公司",
+      "category": "历史波动风险",
+      "interpretation": "“我偏好价格稳定的公司”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q176",
+      "query": "历史价格波动不要太大",
+      "category": "历史波动风险",
+      "interpretation": "“历史价格波动不要太大”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q177",
+      "query": "寻找走势平稳的股票",
+      "category": "历史波动风险",
+      "interpretation": "“寻找走势平稳的股票”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q178",
+      "query": "希望波动率低于百分之三十",
+      "category": "历史波动风险",
+      "interpretation": "“希望波动率低于百分之三十”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q179",
+      "query": "股价起伏尽量小",
+      "category": "历史波动风险",
+      "interpretation": "“股价起伏尽量小”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q180",
+      "query": "风险不要太高",
+      "category": "历史波动风险",
+      "interpretation": "“风险不要太高”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q181",
+      "query": "想找相对稳健的股票",
+      "category": "历史波动风险",
+      "interpretation": "“想找相对稳健的股票”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q182",
+      "query": "不喜欢高波动股票",
+      "category": "历史波动风险",
+      "interpretation": "“不喜欢高波动股票”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q183",
+      "query": "价格波动率越低越好",
+      "category": "历史波动风险",
+      "interpretation": "“价格波动率越低越好”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q184",
+      "query": "挑选低历史波动的标的",
+      "category": "历史波动风险",
+      "interpretation": "“挑选低历史波动的标的”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 25
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q185",
+      "query": "我不想要股价剧烈波动",
+      "category": "历史波动风险",
+      "interpretation": "“我不想要股价剧烈波动”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q186",
+      "query": "希望六十日年化波动率低于二十五",
+      "category": "历史波动风险",
+      "interpretation": "“希望六十日年化波动率低于二十五”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q187",
+      "query": "历史波动表现温和",
+      "category": "历史波动风险",
+      "interpretation": "“历史波动表现温和”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q188",
+      "query": "走势稳定一些更好",
+      "category": "历史波动风险",
+      "interpretation": "“走势稳定一些更好”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q189",
+      "query": "我关注价格波动风险",
+      "category": "历史波动风险",
+      "interpretation": "“我关注价格波动风险”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q190",
+      "query": "六十日波动率控制在二十以内",
+      "category": "历史波动风险",
+      "interpretation": "“六十日波动率控制在二十以内”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q191",
+      "query": "优先历史波动较小的企业",
+      "category": "历史波动风险",
+      "interpretation": "“优先历史波动较小的企业”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q192",
+      "query": "希望股价短期波动较低",
+      "category": "历史波动风险",
+      "interpretation": "“希望股价短期波动较低”映射为历史波动风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "volatility_60d",
+          "op": "<=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q193",
+      "query": "历史最大回撤较小",
+      "category": "历史回撤风险",
+      "interpretation": "“历史最大回撤较小”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q194",
+      "query": "近一年回撤低",
+      "category": "历史回撤风险",
+      "interpretation": "“近一年回撤低”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q195",
+      "query": "希望股票跌幅不要太大",
+      "category": "历史回撤风险",
+      "interpretation": "“希望股票跌幅不要太大”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q196",
+      "query": "挑选低回撤股票",
+      "category": "历史回撤风险",
+      "interpretation": "“挑选低回撤股票”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q197",
+      "query": "近一年最大回撤不超过百分之二十",
+      "category": "历史回撤风险",
+      "interpretation": "“近一年最大回撤不超过百分之二十”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q198",
+      "query": "关注历史下跌幅度",
+      "category": "历史回撤风险",
+      "interpretation": "“关注历史下跌幅度”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q199",
+      "query": "我不喜欢深度回撤的股票",
+      "category": "历史回撤风险",
+      "interpretation": "“我不喜欢深度回撤的股票”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q200",
+      "query": "希望一年最大回撤较低",
+      "category": "历史回撤风险",
+      "interpretation": "“希望一年最大回撤较低”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 15
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q201",
+      "query": "寻找历史回撤小的标的",
+      "category": "历史回撤风险",
+      "interpretation": "“寻找历史回撤小的标的”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q202",
+      "query": "股价下行风险不要太大",
+      "category": "历史回撤风险",
+      "interpretation": "“股价下行风险不要太大”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q203",
+      "query": "最大回撤最好低于百分之二十五",
+      "category": "历史回撤风险",
+      "interpretation": "“最大回撤最好低于百分之二十五”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q204",
+      "query": "过去一年跌幅控制得较好",
+      "category": "历史回撤风险",
+      "interpretation": "“过去一年跌幅控制得较好”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q205",
+      "query": "选择回撤比较温和的股票",
+      "category": "历史回撤风险",
+      "interpretation": "“选择回撤比较温和的股票”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q206",
+      "query": "历史最大回撤不能太高",
+      "category": "历史回撤风险",
+      "interpretation": "“历史最大回撤不能太高”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q207",
+      "query": "希望股价下跌幅度相对有限",
+      "category": "历史回撤风险",
+      "interpretation": "“希望股价下跌幅度相对有限”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q208",
+      "query": "一年回撤小一些更好",
+      "category": "历史回撤风险",
+      "interpretation": "“一年回撤小一些更好”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 20
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q209",
+      "query": "我想找回撤不大的股票",
+      "category": "历史回撤风险",
+      "interpretation": "“我想找回撤不大的股票”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q210",
+      "query": "近一年最大回撤低于百分之十五",
+      "category": "历史回撤风险",
+      "interpretation": "“近一年最大回撤低于百分之十五”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q211",
+      "query": "尽量避免历史大幅下跌的股票",
+      "category": "历史回撤风险",
+      "interpretation": "“尽量避免历史大幅下跌的股票”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q212",
+      "query": "历史价格回撤比较低",
+      "category": "历史回撤风险",
+      "interpretation": "“历史价格回撤比较低”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q213",
+      "query": "我更在意回撤控制",
+      "category": "历史回撤风险",
+      "interpretation": "“我更在意回撤控制”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q214",
+      "query": "最大回撤不超过百分之三十",
+      "category": "历史回撤风险",
+      "interpretation": "“最大回撤不超过百分之三十”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q215",
+      "query": "选择一年内回撤较低的公司",
+      "category": "历史回撤风险",
+      "interpretation": "“选择一年内回撤较低的公司”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    },
+    {
+      "id": "Q216",
+      "query": "希望历史最大跌幅不要太深",
+      "category": "历史回撤风险",
+      "interpretation": "“希望历史最大跌幅不要太深”映射为历史回撤风险的单一代理指标；不能据此推断未来表现，建议阈值需用户确认。",
+      "rules": [
+        {
+          "metric": "max_drawdown_1y",
+          "op": "<=",
+          "value": 30
+        }
+      ],
+      "needsConfirmation": true,
+      "method": "curated_template",
+      "availability": "missing_in_current_snapshot"
+    }
+  ]
+}
