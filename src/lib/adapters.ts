@@ -53,8 +53,8 @@ export const fuyaoAdapter: DataSourceAdapter = {
   },
 };
 export const ifindAdapter: DataSourceAdapter = {
-  id: "ifind", name: "iFinD MCP（未安装）", status: "unavailable", isSynthetic: false,
-  description: "未完成 SKILL 安装和认证；禁止将网页登录URL当作MCP服务端点。",
-  fetchUniverse: async () => { throw new Error("iFinD MCP 尚未完成安装与授权"); },
+  id: "ifind", name: "iFinD MCP（待验证）", status: "disabled", isSynthetic: false,
+  description: "服务端已提供 /api/ifind 工具发现接口；须先配置授权并验证实际工具后，才能用于真实选股。",
+  fetchUniverse: async () => { throw new Error("iFinD MCP 已实现连接发现，但尚未确认选股工具字段映射；不能执行真实筛选。"); },
 };
 export const ADAPTERS = [syntheticAdapter, fuyaoAdapter, ifindAdapter];
