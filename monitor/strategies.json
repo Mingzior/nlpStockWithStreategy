@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "description": "在此启用规则监控。浏览器导出的 monitor_config 需手动转成下面的策略对象提交；enabled=false 的策略不会执行。",
+  "strategies": [
+    {
+      "id": "pe-25",
+      "name": "市盈率不高于25（演示监控）",
+      "enabled": true,
+      "rules": [
+        {
+          "metric": "pe",
+          "op": "<=",
+          "value": 25
+        }
+      ]
+    }
+  ]
+}
