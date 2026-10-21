@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { SyntheticBadge } from "@/components/Shell";
+import { RealScreening } from "@/components/RealScreening";
 import { ADAPTERS, type DataSourceAdapter } from "@/lib/adapters";
 import {
   OPS, STATUS_LABEL, computeImpact, detectConflicts, parseQuery, ruleText, runScreen,
@@ -66,6 +67,7 @@ function Screener() {
   useEffect(() => { setStrategies(loadStrategies()); }, []);
   useEffect(() => {
     let alive = true;
+    setRun(null); setImpact(null); setSelected([]); setUniverse([]);
     setDataError(null);
     adapter.fetchUniverse().then((u) => alive && setUniverse(u.stocks)).catch((e: Error) => { if (alive) { setUniverse([]); setDataError(e.message); } });
     return () => { alive = false; };
@@ -110,6 +112,8 @@ function Screener() {
         <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">用一句话描述你的选股条件</h1>
         <p className="max-w-3xl text-muted-foreground">系统会把描述转换为<strong className="text-foreground">可见、可编辑的数值规则</strong>，对每只股票逐条判断并给出原因。数据缺失一律不算通过。</p>
       </section>
+
+      <RealScreening />
 
       {/* 1. 输入 */}
       <section className="panel space-y-3 p-4" aria-labelledby="s1">
@@ -248,8 +252,8 @@ function Screener() {
       <section className="panel space-y-3 p-4" aria-labelledby="s3">
         <div className="flex flex-wrap items-center gap-3">
           <h2 id="s3" className="font-semibold">③ 筛选结果</h2>
-          <SyntheticBadge />
-          {run && <span className="text-xs text-muted-foreground">运行于 {run.at} · 快照日期 {DATASET_AS_OF}（虚构）</span>}
+          {adapter.isSynthetic && <SyntheticBadge />}
+          {run && <span className="text-xs text-muted-foreground">运行于 {run.at} · {adapter.isSynthetic ? `合成快照日期 ${DATASET_AS_OF}（虚构）` : "真实数据（具体数据时点以数据源为准）"}</span>}
         </div>
         {!run ? (
           <p className="rounded-md border border-dashed border-border p-8 text-center text-sm text-muted-foreground">尚未运行筛选。解析规则后点击“运行筛选”。</p>
