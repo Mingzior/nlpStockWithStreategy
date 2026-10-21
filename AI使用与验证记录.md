@@ -1,30 +1,32 @@
 # AI 使用与验证记录
 
-更新：2026-10-21。以下区分已实施、已自动验证、未验证事项。
+更新：2026-10-21。本记录严格区分开发辅助 AI、实际运行时 AI、确定性引擎和金融数据工具。
 
-## 1. AI 工具使用
-- **Lovable / AI Coding 助手**：生成早期 React/TanStack Start 原型、页面、规则引擎、部分测试与文档。
-- **ChatGPT + GitHub 连接**：检查代码和 GitHub Actions 日志，修改确定性引擎相关测试、适配器、静态演示页面、部署工作流与交付文档。
-- **GitHub Actions**：运行 Vitest、构建和 Pages 发布；它是自动化验证/部署工具，不是大语言模型。
+## AI 工具及参与环节
+- **Lovable / AI Coding**：早期 React/TanStack Start 原型与页面初稿，辅助生成代码、规则引擎和文档。
+- **ChatGPT + GitHub 连接**：代码审查、静态页面交互修改、API 数据适配、自动化测试、监控工作流和交付文档。
+- **OpenAI API（仅 React 服务端原型）**：`code/src/routes/api/intent.ts` 可调用 LLM 生成结构化候选规则及澄清问题，经过 Schema 校验；**公开 Pages 未部署此 API**。
+- **GitHub Actions、Playwright、Vitest、Python unittest**：验证与自动部署工具，不属于 LLM。
 
-## 2. AI 参与环节和职责边界
-- **自然语言理解**：当前静态 Web 版为**确定性关键词和数值表达式解析器**，不是在线 LLM；用户可检查和编辑阈值，歧义词给出提示。
-- **确定性筛选引擎**：规则比较、冲突识别、pass/fail/missing 判定由可复现代码实现，不能由语言模型直接宣布入选。
-- **金融数据工具**：静态版仅使用合成演示数据；独立服务端原型预留扶摇和 iFinD 接口，不能把 API 连通性当成真实指标口径已核实。
+## AI 输出/方案 → 问题 → 人工修正 → 可核查验证
 
-## 3. 人工审查和修正结果
-1. 修正切换数据源后旧结果可能被保留的问题，避免跨来源误读。
-2. 将缺失指标严格标记为未知，不允许缺失值自动通过；失败优先于缺失。
-3. 扶摇映射仅采用已知 PE/PB 字段，ROE 等未验证字段保留 null，接口失败不自动退回虚构数据。
-4. 修正 iFinD 原始响应的嵌套 answer 展示及证券代码正则匹配；未把未经核验的文本强行转换成股票财务数值。
-5. 修正 Pages 初次发布失败：先因 Pages 未启用、后因集成权限不足；用户启用 Pages 后部署成功（[运行记录](https://github.com/Mingzior/nlpStockWithStreategy/actions/runs/39567440890)）。
-6. 将独立 GitHub Pages 演示改为浅色、知乎风格参考的原创简洁布局，并明确标注合成数据。
+| AI 生成或早期方案 | 审查发现的问题 | 修改方案 | 验证证据及状态 |
+| --- | --- | --- | --- |
+| 早期静态演示使用 11 只 SYN 股票 | 合成数据可能被误解为真实金融结论 | 改为扶摇 PE/PB 真实快照；失败时禁用筛选 | [快照原文](code/site/data/stocks.json)、[抓取脚本](scripts/fetch_fuyao_snapshot.py)；真实数据值由提供方返回，尚需原库逐条核实 |
+| 关键词解析被理解为 AI 语义理解 | 关键词匹配不能代表 LLM 理解 | 明确区分 216 条人工模板和 React 服务端 LLM 接口 | [静态前端](code/site/index.html)、[LLM 接口](code/src/routes/api/intent.ts)；静态站未部署 LLM |
+| 对缺失 ROE 等指标可能形成入选结论 | 缺失不应视为通过 | 使用 pass/fail/missing 三态；失败优先于缺失 | [监控测试](tests/test_monitor.py)、[引擎测试](code/src/test/engine.test.ts) |
+| 初始筛选卡片将规则说明和证据直接展示 | 用户要求点击按钮才展开，旧浏览器测试也仍检查合成数据 | 增加「参考」「入选依据」「排除依据」折叠交互；更新 Playwright 断言 | [浏览器测试源码](code/e2e/tests/stocklens.spec.cjs)、[测试工作流](https://github.com/Mingzior/nlpStockWithStreategy/actions/workflows/e2e.yml) |
+| 导出监控 JSON 被误当作监控已启动 | 导出文件不能在后台执行 | 新增 GitHub Actions 定时刷新、策略重筛、状态变化记录；前端单独展示最近执行结果 | [监控引擎](scripts/run_monitor.py)、[监控工作流](.github/workflows/refresh-financial-data.yml)；需首次成功运行验证 |
+| iFinD 的自然语言指标回答可能被当作已核验数值 | 缺少稳定的结构化证券代码、财报期、单位、可核查原文 | 添加结构化字段与来源验证器；拒绝自由文本自动填入 ROE/增长率/负债率 | [iFinD 候选字段验证](scripts/validate_ifind_observations.py)；**四项指标仍未接入真实快照** |
+| README 和测试文档描述仍为旧合成数据版 | 交付物与现有真实数据网页相矛盾 | 同步 README、AI 使用记录、测试说明、Web URL 文档 | [README](README.md)；文档变更不等于全部功能完成 |
 
-## 4. 验证证据与不足
-- [规则引擎单元测试](code/src/test/engine.test.ts) 覆盖解析、模糊表达、冲突、缺失、确定性结果和规则变化。
-- [真实数据适配器模拟测试](code/src/test/real-data.test.ts) 覆盖缺失 ROE 和上游 429 报错；属于 mock，不等于真实行情验收。
-- [CI 工作流](.github/workflows/ci.yml) 和 [Pages 工作流](.github/workflows/pages.yml)。
-- 尚无完整真实数据逐规则端到端验证；未完成浏览器自动化、多设备可访问性检查，也未进行实时投资数据生产发布。
+以上记录是对可查代码与项目修改的复盘，不声称保存了每次 AI 的逐字原始输出或每次人工决策时间戳。若评审要求逐字 Prompt/Response 日志，仍需补充经脱敏的会话记录与对应 commit。
 
-## 5. AI 输出校验原则
-AI 生成的代码和描述均须由测试或真实证据验证；真实数据须保留来源、时点、单位、统计期，接口失败、过期或缺失不得伪装为成功。产品不承诺收益、不生成确定性涨跌预测或直接买卖指令。
+## 职责边界
+- AI 仅能澄清和建议候选规则；用户负责确认阈值。
+- 确定性引擎负责入选/排除/未知判定与规则变化分析。
+- 金融数据工具提供可追溯事实，不能由 LLM 补造。
+- 原数据库逐证券记录 URL 未核实，官方字段文档不等于个股原始数值证据。
+
+## 已知限制
+公开 Pages 没有运行时 LLM；只有 PE/PB 两项验证字段；监控需 Actions 首次成功运行；无历史回测或消息通知。 [测试说明](测试说明.md) · [溯源说明](docs/TESTING_AND_PROVENANCE.md)。
