@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'code/site/index.html'
+      - 'code/site/**'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 permissions:
@@ -24,7 +24,7 @@ jobs:
       - name: Verify standalone page
         run: |
           test -s code/site/index.html
-          grep -q '合成数据演示版' code/site/index.html
+          grep -q '真实数据快照模式' code/site/index.html
           grep -q 'localStorage' code/site/index.html
           python3 -c "from pathlib import Path; s=Path('code/site/index.html').read_text(); Path('/tmp/stocklens-static.js').write_text(s.split('<script>',1)[1].split('</script>',1)[0])"
           node --check /tmp/stocklens-static.js
