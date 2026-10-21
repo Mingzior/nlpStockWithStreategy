@@ -8,25 +8,45 @@
 - **OpenAI API（仅 React 服务端原型）**：`code/src/routes/api/intent.ts` 可调用 LLM 生成结构化候选规则及澄清问题，经过 Schema 校验；**公开 Pages 未部署此 API**。
 - **GitHub Actions、Playwright、Vitest、Python unittest**：验证与自动部署工具，不属于 LLM。
 
-## AI 输出/方案 → 问题 → 人工修正 → 可核查验证
+## 2. 候选人修正
 
-| AI 生成或早期方案 | 审查发现的问题 | 修改方案 | 验证证据及状态 |
-| --- | --- | --- | --- |
-| 早期静态演示使用 11 只 SYN 股票 | 合成数据可能被误解为真实金融结论 | 改为扶摇 PE/PB 真实快照；失败时禁用筛选 | [快照原文](code/site/data/stocks.json)、[抓取脚本](scripts/fetch_fuyao_snapshot.py)；真实数据值由提供方返回，尚需原库逐条核实 |
-| 关键词解析被理解为 AI 语义理解 | 关键词匹配不能代表 LLM 理解 | 明确区分 216 条人工模板和 React 服务端 LLM 接口 | [静态前端](code/site/index.html)、[LLM 接口](code/src/routes/api/intent.ts)；静态站未部署 LLM |
-| 对缺失 ROE 等指标可能形成入选结论 | 缺失不应视为通过 | 使用 pass/fail/missing 三态；失败优先于缺失 | [监控测试](tests/test_monitor.py)、[引擎测试](code/src/test/engine.test.ts) |
-| 初始筛选卡片将规则说明和证据直接展示 | 用户要求点击按钮才展开，旧浏览器测试也仍检查合成数据 | 增加「参考」「入选依据」「排除依据」折叠交互；更新 Playwright 断言 | [浏览器测试源码](code/e2e/tests/stocklens.spec.cjs)、[测试工作流](https://github.com/Mingzior/nlpStockWithStreategy/actions/workflows/e2e.yml) |
-| 导出监控 JSON 被误当作监控已启动 | 导出文件不能在后台执行 | 新增 GitHub Actions 定时刷新、策略重筛、状态变化记录；前端单独展示最近执行结果 | [监控引擎](scripts/run_monitor.py)、[监控工作流](.github/workflows/refresh-financial-data.yml)；需首次成功运行验证 |
-| iFinD 的自然语言指标回答可能被当作已核验数值 | 缺少稳定的结构化证券代码、财报期、单位、可核查原文 | 添加结构化字段与来源验证器；拒绝自由文本自动填入 ROE/增长率/负债率 | [iFinD 候选字段验证](scripts/validate_ifind_observations.py)；**四项指标仍未接入真实快照** |
-| README 和测试文档描述仍为旧合成数据版 | 交付物与现有真实数据网页相矛盾 | 同步 README、AI 使用记录、测试说明、Web URL 文档 | [README](README.md)；文档变更不等于全部功能完成 |
+### 2.1 确立产品基础架构
 
-以上记录是对可查代码与项目修改的复盘，不声称保存了每次 AI 的逐字原始输出或每次人工决策时间戳。若评审要求逐字 Prompt/Response 日志，仍需补充经脱敏的会话记录与对应 commit。
+候选人确立了“自然语言输入 → 候选规则 → 用户修改与确认 → 冲突校验 → 确定性筛选 → 入选/排除/未知解释 → 比较、保存与监控”的产品主链路。技术上采用 GitHub Pages 静态 Web 界面、扶摇真实金融数据快照和 GitHub Actions 定时刷新与监控。受 API 流量及项目预算限制，公开版本使用关键词解析和人工查询模板，不将其描述为实时 LLM。
 
-## 职责边界
-- AI 仅能澄清和建议候选规则；用户负责确认阈值。
-- 确定性引擎负责入选/排除/未知判定与规则变化分析。
-- 金融数据工具提供可追溯事实，不能由 LLM 补造。
-- 原数据库逐证券记录 URL 未核实，官方字段文档不等于个股原始数值证据。
+### 2.2 初步可交互性验证
+
+候选人围绕实际用户操作修正并验证了规则编辑、冲突提示、点击展开“参考/入选依据/排除依据”、股票对比、本地规则保存及后台监控记录查看。采用 Playwright、Python 单元测试和 GitHub Actions 验证主链路；[监控与部署成功记录](https://github.com/Mingzior/nlpStockWithStreategy/actions/runs/39586248105) 可供复核。
+
+### 2.3 三层职责边界
+
+| **环节** | **LLM（AI）** | **确定性筛选引擎** | **金融数据工具（扶摇 / iFinD MCP）** |
+| ------ | ----------- | ----------- | -------------------------- |
+| 意图理解 | 理解自然语言、提出澄清问题与候选条件；公开版由关键词/模板代替 | 只接收结构化规则 | 不负责解释用户意图 |
+| 条件生成与确认 | 提出可编辑的指标和阈值建议，不自行确认 | 校验指标、阈值及冲突 | 提供字段定义、单位与可用性 |
+| 数据获取 | 不生成财务数值 | 读取标准化数据快照 | 扶摇提供当前估值快照；iFinD MCP 是待验证的补充渠道 |
+| 筛选判断 | 不决定股票入选或排除 | 按规则逐项计算入选、排除、未知 | 不代替用户设定筛选标准 |
+| 结果解释 | 可辅助表述，但不得修改判定事实 | 给出实际值、阈值、比较结果与缺失项 | 提供来源、字段、口径与时点 |
+| 持续监控 | 不执行后台定时任务 | 数据更新后重新筛选并比较状态 | 提供可用的新数据 |
+| 安全边界 | 不得越权编造数据或承诺收益 | 拒绝冲突和无效值，保留缺失状态 | 接口失败时不伪造数据 |
+
+**说明**：LLM 一栏描述的是设计职责及服务端原型能力，公开 GitHub Pages 版本并未部署实时 LLM。
+
+### 2.4 安全性验证
+
+候选人对真实数据来源、缺失值、规则冲突、异常接口响应、API 凭证管理及金融结论边界进行验证：不将缺失当作通过，不以合成数据替代失败的真实接口，不在前端公开密钥，不将筛选入选表述为投资建议。测试依据包括 [监控单元测试](tests/test_monitor.py)、[数据快照测试](tests/test_snapshot.py) 与 [测试说明](测试说明.md)。金融数据再分发授权及完整安全审计仍待核实。
+
+### 2.5 候选人修正了哪些错误或不合理结果
+
+1. **合成数据与真实结果混淆**：将早期 SYN 演示股票替换为扶摇真实估值快照，并保留原始响应选取字段和时间。证据：[快照](code/site/data/stocks.json)。
+2. **关键词解析被误认为复杂 LLM 理解**：明确公开版本是人工模板和关键词解析，复杂自然语言不保证识别；真实 LLM 仅在未公开部署的服务端原型。证据：[前端](code/site/index.html)。
+3. **缺失指标可能造成错误入选**：建立 pass/fail/missing 三态规则，明确失败优先于缺失，不用零或臆测值补齐。证据：[监控测试](tests/test_monitor.py)。
+4. **筛选解释信息过载**：将参考、入选依据和排除依据改为默认隐藏、点击展开，并增加浏览器 E2E 验证。证据：[E2E](code/e2e/tests/stocklens.spec.cjs)。
+5. **导出 JSON 不等于监控启动**：补充真实 GitHub Actions 刷新、重筛和状态变化记录，明确监控策略需提交仓库启用。证据：[工作流](.github/workflows/refresh-financial-data.yml)、[监控记录](code/site/data/monitor-history.json)。
+6. **未经核验的 iFinD 数据可能被直接使用**：增加证券代码、单位、报告期、来源等结构校验，拒绝自由文本直接写入正式指标。证据：[验证器](scripts/validate_ifind_observations.py)。
+7. **自动化脚本实际失败**：发现提交阶段 Shell 条件语句缺少结束符，修复后重新执行，确认完整刷新、监控、提交与部署成功。证据：[失败运行](https://github.com/Mingzior/nlpStockWithStreategy/actions/runs/39586046503)、[成功运行](https://github.com/Mingzior/nlpStockWithStreategy/actions/runs/39586248105)。
+
+以上为项目代码及运行记录支持的迭代复盘，并非逐字 AI Prompt/Response 日志。
 
 ## 已知限制
-公开 Pages 没有运行时 LLM；只有 PE/PB 两项验证字段；监控需 Actions 首次成功运行；无历史回测或消息通知。 [测试说明](测试说明.md) · [溯源说明](docs/TESTING_AND_PROVENANCE.md)。
+公开 Pages 没有运行时 LLM；只有 PE/PB 两项验证字段；监控已通过实际 Actions 工作流验证；无历史回测或消息通知。 [测试说明](测试说明.md) · [溯源说明](docs/TESTING_AND_PROVENANCE.md)。
