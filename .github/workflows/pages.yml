@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Validate data and compliance tests
-        run: python3 -m unittest discover -s tests -p 'test_snapshot.py' -v
+        run: python3 -m unittest discover -s tests -p 'test_*.py' -v
       - name: Verify standalone page
         run: |
           test -s code/site/index.html
