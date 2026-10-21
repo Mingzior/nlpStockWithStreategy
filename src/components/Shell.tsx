@@ -33,14 +33,14 @@ export function Shell({ children }: { children: ReactNode }) {
               </Link>
             ))}
           </nav>
-          <SyntheticBadge className="ml-auto" />
+          <span className="ml-auto text-xs text-muted-foreground">演示与真实数据分区</span>
         </div>
       </header>
       <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-6">{children}</main>
       <footer className="border-t border-border bg-card/60">
         <div className="mx-auto max-w-7xl space-y-1 px-4 py-5 text-xs leading-relaxed text-muted-foreground">
-          <p><strong className="text-foreground">合规声明：</strong>本应用为产品演示，所有股票名称与数值均为{DATASET_LABEL}，不代表任何真实公司或市场行情。</p>
-          <p>本工具仅展示规则筛选的计算过程，不构成任何投资建议、收益承诺或买卖推荐。投资有风险，决策需谨慎。真实数据源（Fuyao / iFinD）尚未接入。</p>
+          <p><strong className="text-foreground">合规声明：</strong>本应用包含明确标记的合成演示数据和独立的 iFinD 实时请求区域；合成数据不代表真实公司或行情。</p>
+          <p>本工具仅展示规则筛选的计算过程，不构成任何投资建议、收益承诺或买卖推荐。投资有风险，决策需谨慎。iFinD 真实选股需服务器配置凭证；扶摇接入仍需验证业务字段映射。</p>
         </div>
       </footer>
     </div>
