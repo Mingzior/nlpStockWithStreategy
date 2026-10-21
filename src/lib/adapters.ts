@@ -1,40 +1,60 @@
-import { DATASET_AS_OF, DATASET_SOURCE, STOCKS, type Stock } from "./stocks";
+import { DATASET_AS_OF, DATASET_SOURCE, STOCKS, type Stock, type MetricKey } from "./stocks";
 
 export type AdapterStatus = "available" | "disabled" | "unavailable";
-
-/**
- * 数据源适配器接口。真实数据源（Fuyao / iFinD）必须在服务端实现，
- * 密钥仅存于服务端环境变量，绝不下发到浏览器。
- */
 export interface DataSourceAdapter {
-  id: string;
-  name: string;
-  status: AdapterStatus;
-  isSynthetic: boolean;
-  description: string;
+  id: string; name: string; status: AdapterStatus; isSynthetic: boolean; description: string;
   fetchUniverse(): Promise<{ stocks: Stock[]; asOf: string; source: string }>;
 }
-
 export const syntheticAdapter: DataSourceAdapter = {
   id: "synthetic", name: "合成演示数据集", status: "available", isSynthetic: true,
-  description: "内置 11 只虚构股票，数值为人工构造，用于演示规则与筛选逻辑。",
+  description: "11只虚构股票，数据均为人工合成。",
   fetchUniverse: async () => ({ stocks: STOCKS, asOf: DATASET_AS_OF, source: DATASET_SOURCE }),
 };
 
-const notConnected = (name: string) => async (): Promise<never> => {
-  throw new Error(`${name} 适配器尚未接入：需在服务端配置授权与密钥后启用。当前不会返回任何数据。`);
-};
+const DEFAULT_CODES = ["600519.SH", "000858.SZ", "601318.SH", "600036.SH", "000333.SZ"];
+async function fuyaoRequest(kind: "prices" | "valuations", codes: string[]) {
+  const params = new URLSearchParams({ kind, codes: codes.join(",") });
+  const response = await fetch(`/api/fuyao?${params}`, { cache: "no-store" });
+  const body = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(`扶摇真实数据请求失败：${body.message ?? body.error ?? response.status}。不会自动回退到演示数据。`);
+  if (body.mode !== "real" || !Array.isArray(body.items)) throw new Error("扶摇返回结构不符合预期");
+  return body;
+}
+const numeric = (x: unknown): number | null => typeof x === "number" && Number.isFinite(x) ? x : null;
 
 export const fuyaoAdapter: DataSourceAdapter = {
-  id: "fuyao", name: "Fuyao 数据接口", status: "disabled", isSynthetic: false,
-  description: "预留接口，未接入。接入需服务端函数 + 服务端密钥，浏览器端不保存任何 API Key。",
-  fetchUniverse: notConnected("Fuyao"),
+  id: "fuyao", name: "扶摇真实数据（需服务端密钥）", status: "disabled", isSynthetic: false,
+  description: "通过本站服务端代理查询5只预设A股的估值及行情；仅PE、PB可用于当前规则，其余指标显示缺失。未配置密钥会报错，不回退演示数据。",
+  async fetchUniverse() {
+    const [valuation, prices] = await Promise.all([
+      fuyaoRequest("valuations", DEFAULT_CODES), fuyaoRequest("prices", DEFAULT_CODES),
+    ]);
+    const priceByCode = new Map<string, Record<string, unknown>>(
+      prices.items.map((p: Record<string, unknown>) => [String(p.thscode), p]),
+    );
+    const stocks: Stock[] = valuation.items.map((v: Record<string, unknown>) => {
+      const code = String(v.thscode ?? "");
+      const price = priceByCode.get(code);
+      const metrics = Object.fromEntries([
+        "revenue_growth", "net_profit_growth", "roe", "gross_margin", "pe", "pb",
+        "debt_ratio", "volatility_60d", "max_drawdown_1y",
+      ].map((k) => [k, null])) as Record<MetricKey, number | null>;
+      metrics.pe = numeric(v.pe_ttm);
+      metrics.pb = numeric(v.pb_mrq);
+      return { code, name: String(v.name ?? price?.name ?? code), industry: "未获取行业",
+        metrics, missingNote: {
+          revenue_growth: "尚未接入财务指标端点", net_profit_growth: "尚未接入财务指标端点",
+          roe: "尚未接入财务指标端点", gross_margin: "尚未接入财务指标端点",
+          debt_ratio: "尚未接入财务指标端点", volatility_60d: "尚未计算历史行情波动率",
+          max_drawdown_1y: "尚未计算历史最大回撤",
+        } };
+    });
+    return { stocks, asOf: valuation.sourceTimestamp ? new Date(valuation.sourceTimestamp).toISOString() : valuation.receivedAt, source: "扶摇 REST API / 估值快照（真实数据）" };
+  },
 };
-
 export const ifindAdapter: DataSourceAdapter = {
-  id: "ifind", name: "同花顺 iFinD", status: "unavailable", isSynthetic: false,
-  description: "预留接口，未接入，未获得授权。不会展示任何真实行情或价格。",
-  fetchUniverse: notConnected("iFinD"),
+  id: "ifind", name: "iFinD MCP（未安装）", status: "unavailable", isSynthetic: false,
+  description: "未完成 SKILL 安装和认证；禁止将网页登录URL当作MCP服务端点。",
+  fetchUniverse: async () => { throw new Error("iFinD MCP 尚未完成安装与授权"); },
 };
-
 export const ADAPTERS = [syntheticAdapter, fuyaoAdapter, ifindAdapter];
