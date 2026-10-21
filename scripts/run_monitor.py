@@ -79,7 +79,7 @@ def run(snapshot, config, previous):
                     "before": old_results[code]["status"], "after": record["status"]}
                    for code, record in results.items()
                    if code in old_results and old_results[code]["status"] != record["status"]]
-        reports.append({"id": sid, "name": item.get("name", sid), "rules": rules,
+        reports.append({"id": sid, "name": item.get("name", sid), "rules": [dict(r) for r in rules],
                         "results": results, "changes": changes,
                         "baseline": "comparable" if comparable else "new_or_rules_changed"})
     return {"schemaVersion": 1, "source": snapshot.get("provider"),
