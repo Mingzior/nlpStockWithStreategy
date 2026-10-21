@@ -50,4 +50,3 @@ jobs:
         id: deployment
         if: success()
         uses: actions/deploy-pages@v4
-          fi
