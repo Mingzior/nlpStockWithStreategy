@@ -188,6 +188,17 @@ jobs:
                                   print("Indicators JSON type:", type(parsed).__name__)
                                   if isinstance(parsed, dict):
                                       print("Indicators keys:", sorted(parsed.keys())[:30])
+                                      print("Indicators code:", str(parsed.get("code"))[:32])
+                                      print("Indicators data type:", type(parsed.get("data")).__name__)
+                                      data = parsed.get("data")
+                                      if isinstance(data, dict):
+                                          print("Indicators data keys:", sorted(data.keys())[:35])
+                                      elif isinstance(data, list):
+                                          print("Indicators row count:", len(data))
+                                          if data and isinstance(data[0], dict):
+                                              print("Indicators row keys:", sorted(data[0].keys())[:35])
+                                      if parsed.get("code") not in (0, "0"):
+                                          failures.append("Indicators business code is not success")
                               except ValueError:
                                   print("Indicators text chars:", len(raw), "(content suppressed)")
 
@@ -220,6 +231,17 @@ jobs:
                                   print("JSON result type:", type(parsed).__name__)
                                   if isinstance(parsed, dict):
                                       print("Result keys:", sorted(parsed.keys())[:30])
+                                      print("Screening code:", str(parsed.get("code"))[:32])
+                                      data = parsed.get("data")
+                                      print("Screening data type:", type(data).__name__)
+                                      if isinstance(data, dict):
+                                          print("Screening data keys:", sorted(data.keys())[:35])
+                                      elif isinstance(data, list):
+                                          print("Screening row count:", len(data))
+                                          if data and isinstance(data[0], dict):
+                                              print("Screening row keys:", sorted(data[0].keys())[:35])
+                                      if parsed.get("code") not in (0, "0"):
+                                          failures.append("Screening business code is not success")
                                       for k, v in parsed.items():
                                           if isinstance(v, list):
                                               print("Array field:", k, "count:", len(v))
