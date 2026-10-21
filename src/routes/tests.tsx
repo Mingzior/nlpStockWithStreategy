@@ -12,8 +12,8 @@ const CASES: [string, string, string, string][] = [
   ["T8", "点“逐项追溯”", "显示取值、单位、口径、统计期、来源、截至日期", "计划（人工/E2E）"],
   ["T9", "勾选 2–4 只股票", "显示对比图表与表格，第 5 只不可勾选", "计划（人工/E2E）"],
   ["T10", "保存策略并刷新页面后载入", "策略仍在列表中，载入后规则恢复", "计划（人工/E2E）"],
-  ["T11", "数据源切换为 Fuyao / iFinD", "显示未接入错误，无数据，运行禁用", "计划（人工/E2E）"],
-  ["T12", "检查所有结果区域", "均显示“合成演示数据，非真实行情”，无任何价格", "计划（人工）"],
+  ["T11", "数据源切换为 Fuyao / iFinD", "Fuyao 有服务端密钥时使用真实 PE/PB，其他缺失；iFinD 未接入确定性规则引擎", "计划（人工/E2E）"],
+  ["T12", "检查合成演示数据区域", "明确标注合成数据，真实模式不回退合成结果", "计划（人工）"],
 ];
 
 export const Route = createFileRoute("/tests")({
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/tests")({
   component: () => (
     <Prose>
       <h1>验收测试</h1>
-      <p>“已执行”指本次构建中实际运行并通过（src/test/engine.test.ts）；“计划”指尚未执行。</p>
+      <p>“已执行”指对应的自动化单元测试已经通过；“计划”表示尚无完整浏览器端到端测试。GitHub Pages 静态版仅使用合成数据，不调用金融 API。</p>
       <table><thead><tr><th>编号</th><th>操作</th><th>预期</th><th>状态</th></tr></thead>
         <tbody>{CASES.map((c) => <tr key={c[0]}>{c.map((x, i) => <td key={i}>{x}</td>)}</tr>)}</tbody>
       </table>
