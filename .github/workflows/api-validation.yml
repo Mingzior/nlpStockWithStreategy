@@ -238,6 +238,8 @@ jobs:
                                       print("Screening subCode type/value:", type(parsed.get("subCode")).__name__, str(parsed.get("subCode"))[:32])
                                       print("Screening answer type:", type(parsed.get("data", {}).get("answer") if isinstance(parsed.get("data"), dict) else None).__name__)
                                       print("Screening answer length:", len(str(parsed.get("data", {}).get("answer", ""))))
+                                      print("Screening selected count:", str(parsed.get("data", {}).get("selectedSecuritiesCount"))[:32])
+                                      print("Screening total volume:", str(parsed.get("data", {}).get("dataTotalVolume"))[:32])
                                       data = parsed.get("data")
                                       print("Screening data type:", type(data).__name__)
                                       if isinstance(data, dict):
