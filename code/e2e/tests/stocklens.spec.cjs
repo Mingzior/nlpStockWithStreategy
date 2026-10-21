@@ -100,5 +100,15 @@ test('策略保存和导出可用，回测与监控未谎称已执行', async ({
  await expect(page.locator('#strategies')).toContainText('交互测试策略');
  await expect(page.getByRole('button',{name:'导出回测配置'})).toBeVisible();
  await expect(page.getByRole('button',{name:'转为监控任务配置'})).toBeVisible();
- await expect(page.locator('#compare')).toContainText('不会声称已完成回测或启动监控');
+ await expect(page.locator('#compare')).toContainText('只有提交到仓库 monitor/strategies.json 并由 GitHub Actions 成功执行后，才算启动监控');
+});
+
+test('监控记录默认隐藏，点击后显示明确的执行状态', async ({ page }) => {
+ const panel=page.locator('#monitor-records');
+ await expect(panel).toBeHidden();
+ await page.getByRole('button',{name:'查看最近监控结果'}).click();
+ await expect(panel).toBeVisible();
+ await expect(panel).toContainText(/监控执行时间|暂无可用监控记录/);
+ await page.getByRole('button',{name:'查看最近监控结果'}).click();
+ await expect(panel).toBeHidden();
 });
