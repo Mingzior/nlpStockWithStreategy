@@ -23,6 +23,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Verify deterministic monitor and source validators
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
       - name: Fetch verified real financial snapshot
         env:
           FUYAO_API_KEY: ${{ secrets.FUYAO_API_KEY }}
