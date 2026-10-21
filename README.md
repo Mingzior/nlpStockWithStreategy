@@ -1,51 +1,69 @@
-# StockLens AI — 自然语言智能选股与策略解释器
+# StockLens AI · 自然语言智能选股与策略解释器
 
-> **合成数据演示；非真实行情、非投资建议。**
+**[在线交互演示](https://mingzior.github.io/nlpStockWithStreategy/)** · [AI 使用与验证记录](AI使用与验证记录.md) · [测试说明](测试说明.md) · [Web 产品 URL](Web产品URL.md) · [PRD（待定）](PRD.md)
 
-## 公开演示（GitHub Pages）
+> **重要：当前公开版本使用合成数据，非真实行情，不构成投资建议。** GitHub Pages 仅运行静态演示，不运行服务端金融 API。
 
-预期访问地址：**https://mingzior.github.io/nlpStockWithStreategy/**
+## 1. 启动方式
 
-该地址须先在 GitHub 仓库 **Settings → Pages → Build and deployment → Source → GitHub Actions** 开启 Pages，并以 Actions 部署成功为准。**未部署成功前不代表链接可用。**
+**公开体验**：打开 [GitHub Pages](https://mingzior.github.io/nlpStockWithStreategy/)，无需安装或登录。
 
-无需 Lovable，无需金融 API 密钥。静态应用位于 [docs/index.html](docs/index.html)，不包含扶摇/iFinD 的服务端调用。
+**静态版本地启动**：下载仓库后，在项目根目录运行 `python -m http.server 8000 --directory docs`，访问 `http://localhost:8000/`。也可以直接打开 `docs/index.html`。
 
-## 已实现的静态演示功能
-
-- 中文自然语言条件解析，生成可见、可编辑的结构化规则
-- 自定义指标、运算符、阈值、区间；矛盾与无效条件阻止运行
-- 11 只**虚构**股票的确定性规则筛选，逐项通过/未通过/缺失解释
-- 数据来源、指标单位、口径和模拟日期说明
-- 入选/排除/未知状态筛选，修改规则后的结果变化摘要
-- 2–4 只股票的指标对比表
-- 浏览器本地策略保存、载入、删除
-- 手机端响应式布局；无需登录即可交互
-
-## 运行与开发
-
-原始完整应用为 TanStack Start + React，包含独立的服务端真实数据适配器：
+**原始 React / TanStack Start 项目**（需要 Node.js 24 与 npm）：
 
 ```bash
 npm install
+npm run dev
 npm test
 npm run build
-npm run dev
 ```
 
-静态版：直接打开 `docs/index.html`，或使用任意静态 HTTP 服务器托管 `docs/`。
+## 2. 环境变量
 
-## 数据与安全边界
+| 变量 | 用途 | GitHub Pages 静态版 |
+|---|---|---|
+| `FUYAO_API_KEY` | 扶摇 API 的服务端授权 | **不需要** |
+| `IFIND_MCP_AUTHORIZATION` | iFinD MCP 服务端授权 | **不需要** |
 
-静态演示**不连接**扶摇或 iFinD，不会向第三方发送查询或暴露 API 凭据。真实数据能力保留在原始服务端项目中，部署后仍需要密钥、权限控制、限流及端到端验证。GitHub Pages 不能执行 `/api/screen` 或 `/api/fuyao`。
+示例见 `.env.example`。密钥只应存储在**服务端**环境，不能提交到 GitHub 或使用 `VITE_` 前缀注入浏览器。GitHub Actions Secrets 不会自动传给部署平台。
 
-## 测试与发布
+## 3. 产品选择
 
-- `.github/workflows/ci.yml`：React 主应用单元测试与构建。
-- `.github/workflows/pages.yml`：校验静态文件和 JS 语法，上传并发布到 GitHub Pages。
-- `src/test/real-data.test.ts`：模拟上游响应验证真实 PE/PB 适配器的缺失值和失败处理（非真实接口测试）。
+本次公开交付选择 **GitHub Pages 静态交互演示**：免费、公开、无后端依赖，聚焦可操作的规则选股主链路。保留 React/TanStack Start 服务端原型以备后续真实金融数据集成，**不将该原型宣称为已经生产部署**。当前静态页独立实现与 React 原型相同方向的主要交互，仍需完整跨实现回归测试。
 
-如 Pages workflow 提示 `Get Pages site failed: Not Found`，需由仓库管理员先在 Settings → Pages 开启 GitHub Actions 作为发布源。
+## 4. AI 的角色
 
-## 课程交付说明
+早期代码使用 Lovable/AI Coding 辅助生成，后续由 ChatGPT 协助检查、修改和部署。**静态产品运行时没有调用 LLM**：自然语言解析使用关键词/数值表达式规则，筛选由确定性比较算法执行，用户可以手动修改解析结果。AI 不负责直接断言股票是否入选。详细过程和修正见 [AI 使用与验证记录](AI使用与验证记录.md)。
 
-该版本满足**无实时金融 API**的产品演示范围；不包含真实股票行情、实时监控、历史回测或在线用户账号系统。所有合成数据都明确标注，不用于投资决策。
+## 5. 数据来源
+
+- **公开静态版**：仓库内置 11 只虚构 `SYN-` 股票，指标与名称均为**合成演示数据**，模拟日期 2026-09-30，绝非真实行情。
+- **服务端预留**：扶摇估值/行情 API、iFinD MCP；相关 API 连通性或模拟测试**不等于**真实财务指标已完成逐项验证。
+- 筛选结果展示规则、数值、单位、模拟统计期和来源；缺失指标为“未知”，不算通过。
+
+## 6. 已知边界
+
+- 关键词解析覆盖有限，不是通用语义理解；模糊表达需用户澄清。
+- 静态版只筛选内置 11 只虚构股票，不代表全 A 股市场。
+- 保存策略仅使用浏览器 localStorage，跨设备不共享。
+- 规则冲突与缺失处理可确定性执行，但**静态页尚缺完整浏览器 E2E 测试**。
+- 不保证未来收益，不给出确定性涨跌预测或买卖建议。
+- 实际使用金融数据前必须核对授权、来源、时点、单位、统计口径及异常处理。
+
+## 7. 未做事项
+
+- 真实股票历史快照的公开合规导入与逐字段核验。
+- 扶摇/iFinD 在已发布 Web 站点中的实际服务端调用。
+- 全市场实时筛选、自动监控任务、历史回测、账号与云端策略同步。
+- 浏览器 E2E、无障碍、多设备视觉回归及正式性能测试。
+- PRD 的正式需求研究与详细交互设计（[PRD 待定](PRD.md)）。
+
+## 仓库目录
+
+- `docs/index.html`：GitHub Pages 交互演示（浅色、简洁布局）。
+- `src/`：原始 React 应用、规则引擎、服务端 API 和测试。
+- `.github/workflows/`：CI、Pages 发布与受控金融 API 验证工作流。
+- 根目录：交付文档及构建必需配置。
+
+**说明：Git 历史提交和 Actions 运行日志不会因删除当前文件而自动消失。** 为保证现有构建和发布可复现，暂保留根目录必要的 `package.json`、`vite.config.ts` 等工程文件；不应为追求恰好六个根目录条目而破坏构建。
