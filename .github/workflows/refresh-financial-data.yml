@@ -43,6 +43,7 @@ jobs:
           else
             git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m "data: refresh verified Fuyao valuation snapshot"
             git push
+          fi
       - name: Publish refreshed static site (GITHUB_TOKEN commits do not trigger push workflows)
         if: success()
         uses: actions/upload-pages-artifact@v3
