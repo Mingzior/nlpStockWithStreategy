@@ -57,6 +57,7 @@ function Screener() {
   const [adapter, setAdapter] = useState<DataSourceAdapter>(ADAPTERS[0]);
   const [dataError, setDataError] = useState<string | null>(null);
   const [universe, setUniverse] = useState<Stock[]>([]);
+  const [provenance, setProvenance] = useState<{source: string; asOf: string} | null>(null);
   const [filter, setFilter] = useState<Status | "all">("all");
   const [expanded, setExpanded] = useState<string | null>(null);
   const [selected, setSelected] = useState<string[]>([]);
@@ -68,8 +69,8 @@ function Screener() {
   useEffect(() => {
     let alive = true;
     setRun(null); setImpact(null); setSelected([]); setUniverse([]);
-    setDataError(null);
-    adapter.fetchUniverse().then((u) => alive && setUniverse(u.stocks)).catch((e: Error) => { if (alive) { setUniverse([]); setDataError(e.message); } });
+    setDataError(null); setProvenance(null);
+    adapter.fetchUniverse().then((u) => { if (alive) { setUniverse(u.stocks); setProvenance({source: u.source, asOf: u.asOf}); } }).catch((e: Error) => { if (alive) { setUniverse([]); setDataError(e.message); } });
     return () => { alive = false; };
   }, [adapter]);
   useEffect(() => { if (!toast) return; const t = setTimeout(() => setToast(null), 2500); return () => clearTimeout(t); }, [toast]);
@@ -192,11 +193,12 @@ function Screener() {
                 <input type="radio" name="adapter" checked={adapter.id === a.id} onChange={() => setAdapter(a)} />
                 <span>
                   <span className="font-medium">{a.name}</span>{" "}
-                  <span className={`text-xs ${a.status === "available" ? "text-success" : "text-muted-foreground"}`}>[{a.status === "available" ? "可用·合成" : a.status === "disabled" ? "已禁用" : "不可用"}]</span>
+                  <span className={`text-xs ${a.status === "available" ? "text-success" : "text-muted-foreground"}`}>[{a.status === "available" ? (a.isSynthetic ? "可用·合成" : "可用·真实接口") : a.status === "disabled" ? "已禁用" : "不可用"}]</span>
                   <span className="block text-xs text-muted-foreground">{a.description}</span>
                 </span>
               </label>
             ))}
+            {provenance && <div className="rounded-md border border-border p-2 text-xs text-muted-foreground"><p>数据来源：{provenance.source}</p><p>数据时点：{provenance.asOf}</p><p>缺失指标不参与通过判定；仅对返回的有效数值逐项比较。接收时间不等于行情时点。</p></div>}
             {dataError && <p role="alert" className="rounded-md border border-destructive/50 bg-destructive/10 p-2 text-xs text-destructive">{dataError}</p>}
           </section>
           <section className="panel space-y-2 p-4" aria-labelledby="st">
