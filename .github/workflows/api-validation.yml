@@ -188,7 +188,9 @@ jobs:
                                   print("Indicators JSON type:", type(parsed).__name__)
                                   if isinstance(parsed, dict):
                                       print("Indicators keys:", sorted(parsed.keys())[:30])
-                                      print("Indicators code:", str(parsed.get("code"))[:32])
+                                      print("Indicators code type/value:", type(parsed.get("code")).__name__, str(parsed.get("code"))[:32])
+                                      print("Indicators subCode type/value:", type(parsed.get("subCode")).__name__, str(parsed.get("subCode"))[:32])
+                                      print("Indicators answer type:", type(parsed.get("data", {}).get("answer") if isinstance(parsed.get("data"), dict) else None).__name__)
                                       print("Indicators data type:", type(parsed.get("data")).__name__)
                                       data = parsed.get("data")
                                       if isinstance(data, dict):
@@ -231,7 +233,9 @@ jobs:
                                   print("JSON result type:", type(parsed).__name__)
                                   if isinstance(parsed, dict):
                                       print("Result keys:", sorted(parsed.keys())[:30])
-                                      print("Screening code:", str(parsed.get("code"))[:32])
+                                      print("Screening code type/value:", type(parsed.get("code")).__name__, str(parsed.get("code"))[:32])
+                                      print("Screening subCode type/value:", type(parsed.get("subCode")).__name__, str(parsed.get("subCode"))[:32])
+                                      print("Screening answer type:", type(parsed.get("data", {}).get("answer") if isinstance(parsed.get("data"), dict) else None).__name__)
                                       data = parsed.get("data")
                                       print("Screening data type:", type(data).__name__)
                                       if isinstance(data, dict):
