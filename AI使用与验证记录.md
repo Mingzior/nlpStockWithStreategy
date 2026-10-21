@@ -21,8 +21,8 @@
 6. 将独立 GitHub Pages 演示改为浅色、知乎风格参考的原创简洁布局，并明确标注合成数据。
 
 ## 4. 验证证据与不足
-- [规则引擎单元测试](src/test/engine.test.ts) 覆盖解析、模糊表达、冲突、缺失、确定性结果和规则变化。
-- [真实数据适配器模拟测试](src/test/real-data.test.ts) 覆盖缺失 ROE 和上游 429 报错；属于 mock，不等于真实行情验收。
+- [规则引擎单元测试](code/src/test/engine.test.ts) 覆盖解析、模糊表达、冲突、缺失、确定性结果和规则变化。
+- [真实数据适配器模拟测试](code/src/test/real-data.test.ts) 覆盖缺失 ROE 和上游 429 报错；属于 mock，不等于真实行情验收。
 - [CI 工作流](.github/workflows/ci.yml) 和 [Pages 工作流](.github/workflows/pages.yml)。
 - 尚无完整真实数据逐规则端到端验证；未完成浏览器自动化、多设备可访问性检查，也未进行实时投资数据生产发布。
 
