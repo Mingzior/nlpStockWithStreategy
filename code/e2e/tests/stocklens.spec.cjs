@@ -75,3 +75,33 @@ test('静态版本不调用真实金融 API，页面明确标注合成数据', a
  await expect(page.getByText('合成数据演示版 · 非真实行情')).toBeVisible();
  expect(calls).toEqual([]);
 });
+
+test('普通用户语言映射为可编辑量化条件并可筛选',async({page})=>{
+ await page.locator('#query').fill('我想找经营稳定、发展前景好、风险比较低的公司');
+ await expect(page.locator('.rule')).toHaveCount(0);
+ await page.getByRole('button',{name:'解析为规则'}).click();
+ await expect(page.locator('.rule')).toHaveCount(5);
+ await expect(page.locator('#notes')).toContainText('候选量化条件');
+ await page.getByRole('button',{name:'运行筛选'}).click();
+ await expect(page.locator('.stock')).toHaveCount(11);
+});
+test('入选排最前、排除解释直接展示、逐项数据证据可展开',async({page})=>{
+ await parseDefault(page);
+ await page.getByRole('button',{name:'运行筛选'}).click();
+ await expect(page.locator('.stock').first()).toHaveAttribute('data-status','included');
+ await expect(page.locator('.stock').first()).toContainText('入选原因');
+ const excluded=page.locator('.stock[data-status="excluded"]').first();
+ await expect(excluded).toContainText('排除原因');
+ await excluded.locator('summary').click();
+ await expect(excluded).toContainText('模拟快照：2026-09-30');
+});
+test('规则变更显示入选数量前后变化和具体股票状态变化',async({page})=>{
+ await parseDefault(page);
+ await page.getByRole('button',{name:'运行筛选'}).click();
+ await page.locator('.rule').first().locator('.val').fill('90');
+ await page.locator('.rule').first().locator('.val').dispatchEvent('change');
+ await page.getByRole('button',{name:'运行筛选'}).click();
+ await expect(page.locator('#impact')).toContainText('原入选');
+ await expect(page.locator('#impact')).toContainText('状态发生变化');
+ await expect(page.locator('#impact li').first()).toBeVisible();
+});
