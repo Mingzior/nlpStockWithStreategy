@@ -38,7 +38,7 @@
 
 ### 2.5 候选人修正了哪些错误或不合理结果
 
-1. **合成数据与真实结果混淆**：将早期 SYN 演示股票替换为扶摇真实估值快照，并保留原始响应选取字段和时间。证据：[快照](code/site/data/stocks.json)。
+1. **合成数据与真实结果混淆**：将早期 SYN 演示股票替换为扶摇真实估值快照，并保留原始响应选取字段和时间。证据：[快照](https://github.com/Mingzior/nlpStockWithStreategy/blob/main/code/site/data/stocks.json)。
 2. **关键词解析被误认为复杂 LLM 理解**：明确公开版本是人工模板和关键词解析，复杂自然语言不保证识别；真实 LLM 仅在未公开部署的服务端原型。证据：[前端](code/site/index.html)。
 3. **缺失指标可能造成错误入选**：建立 pass/fail/missing 三态规则，明确失败优先于缺失，不用零或臆测值补齐。证据：[监控测试](tests/test_monitor.py)。
 4. **筛选解释信息过载**：将参考、入选依据和排除依据改为默认隐藏、点击展开，并增加浏览器 E2E 验证。证据：[E2E](code/e2e/tests/stocklens.spec.cjs)。
