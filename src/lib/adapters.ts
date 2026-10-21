@@ -23,8 +23,8 @@ async function fuyaoRequest(kind: "prices" | "valuations", codes: string[]) {
 const numeric = (x: unknown): number | null => typeof x === "number" && Number.isFinite(x) ? x : null;
 
 export const fuyaoAdapter: DataSourceAdapter = {
-  id: "fuyao", name: "扶摇真实数据（需服务端密钥）", status: "disabled", isSynthetic: false,
-  description: "通过本站服务端代理查询5只预设A股的估值及行情；仅PE、PB可用于当前规则，其余指标显示缺失。未配置密钥会报错，不回退演示数据。",
+  id: "fuyao", name: "扶摇真实数据（需服务端密钥）", status: "available", isSynthetic: false,
+  description: "通过本站服务端代理查询5只预设A股的估值及行情；仅在来源明确且返回有效数值时使用PE(TTM)、PB(MRQ)，其余指标显示缺失。需服务端密钥，不回退演示数据。",
   async fetchUniverse() {
     const [valuation, prices] = await Promise.all([
       fuyaoRequest("valuations", DEFAULT_CODES), fuyaoRequest("prices", DEFAULT_CODES),
@@ -45,11 +45,11 @@ export const fuyaoAdapter: DataSourceAdapter = {
         metrics, missingNote: {
           revenue_growth: "尚未接入财务指标端点", net_profit_growth: "尚未接入财务指标端点",
           roe: "尚未接入财务指标端点", gross_margin: "尚未接入财务指标端点",
-          debt_ratio: "尚未接入财务指标端点", volatility_60d: "尚未计算历史行情波动率",
+          debt_ratio: "尚未接入财务指标端点", pe: "扶摇估值快照未提供有效 pe_ttm", pb: "扶摇估值快照未提供有效 pb_mrq", volatility_60d: "尚未计算历史行情波动率",
           max_drawdown_1y: "尚未计算历史最大回撤",
         } };
     });
-    return { stocks, asOf: valuation.sourceTimestamp ? new Date(valuation.sourceTimestamp).toISOString() : valuation.receivedAt, source: "扶摇 REST API / 估值快照（真实数据）" };
+    return { stocks, asOf: valuation.sourceTimestamp ? String(valuation.sourceTimestamp) : "未知（仅有接收时间 " + valuation.receivedAt + "）", source: "扶摇 REST API / valuations/snapshot / pe_ttm(倍) / pb_mrq(倍)；实际财报期未由该适配器核实" };
   },
 };
 export const ifindAdapter: DataSourceAdapter = {
