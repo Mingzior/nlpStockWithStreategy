@@ -1,0 +1,36 @@
+name: Refresh Fuyao Static Snapshot
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 2 * * 1-5'
+permissions:
+  contents: write
+concurrency:
+  group: fuyao-snapshot
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch verified real financial snapshot
+        env:
+          FUYAO_API_KEY: ${{ secrets.FUYAO_API_KEY }}
+        run: python scripts/fetch_fuyao_snapshot.py
+      - name: Validate JSON and stage snapshot
+        run: |
+          python -m json.tool code/site/data/stocks.json > /dev/null
+          git add code/site/data/stocks.json
+      - name: Commit snapshot if changed
+        run: |
+          if git diff --cached --quiet; then
+            echo "No snapshot change"
+          else
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m "data: refresh verified Fuyao valuation snapshot"
+            git push
+          fi
