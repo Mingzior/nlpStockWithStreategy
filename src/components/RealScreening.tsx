@@ -4,11 +4,31 @@ type ScreenResponse = {
   provider: string; tool: string; mode: "real"; requestedAt: string;
   query: string; rawContent: string[]; warning: string;
 };
+type EvidenceRow = { code: string; name: string; fields: Record<string, unknown> };
+function extractEvidence(raw: string[]): EvidenceRow[] {
+  const rows: EvidenceRow[] = [];
+  const visit = (node: unknown, depth = 0) => {
+    if (depth > 5 || rows.length >= 50 || node == null) return;
+    if (Array.isArray(node)) { node.slice(0, 50).forEach((v) => visit(v, depth + 1)); return; }
+    if (typeof node !== "object") return;
+    const obj = node as Record<string, unknown>;
+    const code = ["thscode", "thscode", "stock_code", "stockCode", "证券代码", "股票代码", "code"].map((k) => obj[k]).find((v) => typeof v === "string" && /^(?:\\d{6}(?:\\.(?:SH|SZ|BJ))?)$/.test(v));
+    if (typeof code === "string") {
+      const name = ["name", "stock_name", "stockName", "证券简称", "股票简称"].map((k) => obj[k]).find((v) => typeof v === "string");
+      rows.push({ code, name: typeof name === "string" ? name : code, fields: obj });
+      return;
+    }
+    for (const value of Object.values(obj)) visit(value, depth + 1);
+  };
+  raw.forEach((text) => { try { visit(JSON.parse(text)); } catch { /* plain text is not a verified structured row */ } });
+  return rows;
+}
 export function RealScreening() {
   const [query, setQuery] = useState("筛选A股中ROE大于15%、市盈率TTM小于30的股票");
   const [data, setData] = useState<ScreenResponse | null>(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const evidence = data ? extractEvidence(data.rawContent) : [];
   async function screen() {
     setLoading(true); setData(null); setError("");
     try {
@@ -43,6 +63,8 @@ export function RealScreening() {
         <div className="space-y-2 rounded-md border border-border p-3">
           <p className="text-sm font-semibold">来源：{data.provider} / {data.tool}</p>
           <p className="text-xs text-muted-foreground">请求时间：{data.requestedAt}（UTC）；实际指标时点和统计口径以原始返回内容为准。</p>
+          {evidence.length > 0 && <div className="space-y-2"><p className="text-sm font-medium">可识别的原始股票记录（{evidence.length}）</p>{evidence.map((row, i) => <details key={row.code + i} className="rounded border border-border p-2"><summary className="cursor-pointer text-sm">{row.name} · {row.code} · 查看原始指标及筛选依据</summary><dl className="mt-2 grid gap-1 text-xs">{Object.entries(row.fields).map(([key, value]) => <div key={key} className="grid grid-cols-[minmax(100px,1fr)_2fr] gap-2 border-b border-border/40 py-1"><dt className="break-words text-muted-foreground">{key}</dt><dd className="break-all">{typeof value === "object" ? JSON.stringify(value) : String(value ?? "缺失")}</dd></div>)}</dl></details>)}</div>}
+          {evidence.length === 0 && <p className="text-xs text-warning">上游未返回可安全识别的结构化证券记录；以下保留原始文本，暂不推断入选/排除或指标数值。</p>}
           {data.rawContent.map((content, i) => (
             <pre key={i} className="max-h-96 overflow-auto whitespace-pre-wrap break-words rounded-md bg-secondary p-3 text-xs leading-relaxed">{content}</pre>
           ))}
