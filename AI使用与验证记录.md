@@ -36,15 +36,15 @@
 
 候选人对真实数据来源、缺失值、规则冲突、异常接口响应、API 凭证管理及金融结论边界进行验证：不将缺失当作通过，不以合成数据替代失败的真实接口，不在前端公开密钥，不将筛选入选表述为投资建议。测试依据包括 [监控单元测试](tests/test_monitor.py)、[数据快照测试](tests/test_snapshot.py) 与 [测试说明](测试说明.md)。金融数据再分发授权及完整安全审计仍待核实。
 
-### 2.5 候选人修正了哪些错误或不合理结果
+### 2.5 人工修正
 
-1. **合成数据与真实结果混淆**：将早期 SYN 演示股票替换为扶摇真实估值快照，并保留原始响应选取字段和时间。证据：[快照](https://github.com/Mingzior/nlpStockWithStreategy/blob/main/code/site/data/stocks.json)。
-2. **关键词解析被误认为复杂 LLM 理解**：明确公开版本是人工模板和关键词解析，复杂自然语言不保证识别；真实 LLM 仅在未公开部署的服务端原型。证据：[前端](code/site/index.html)。
-3. **缺失指标可能造成错误入选**：建立 pass/fail/missing 三态规则，明确失败优先于缺失，不用零或臆测值补齐。证据：[监控测试](tests/test_monitor.py)。
-4. **筛选解释信息过载**：将参考、入选依据和排除依据改为默认隐藏、点击展开，并增加浏览器 E2E 验证。证据：[E2E](code/e2e/tests/stocklens.spec.cjs)。
-5. **导出 JSON 不等于监控启动**：补充真实 GitHub Actions 刷新、重筛和状态变化记录，明确监控策略需提交仓库启用。证据：[工作流](.github/workflows/refresh-financial-data.yml)、[监控记录](code/site/data/monitor-history.json)。
-6. **未经核验的 iFinD 数据可能被直接使用**：增加证券代码、单位、报告期、来源等结构校验，拒绝自由文本直接写入正式指标。证据：[验证器](scripts/validate_ifind_observations.py)。
-7. **自动化脚本实际失败**：发现提交阶段 Shell 条件语句缺少结束符，修复后重新执行，确认完整刷新、监控、提交与部署成功。证据：[失败运行](https://github.com/Mingzior/nlpStockWithStreategy/actions/runs/39586046503)、[成功运行](https://github.com/Mingzior/nlpStockWithStreategy/actions/runs/39586248105)。
+1. **合成数据与真实结果混淆**：将早期 SYN 演示股票替换为扶摇真实估值快照，并保留原始响应选取字段和时间。
+2. **关键词解析被误认为复杂 LLM 理解**：明确公开版本是人工模板和关键词解析，复杂自然语言不保证识别；真实 LLM 仅在未公开部署的服务端原型。
+3. **缺失指标可能造成错误入选**：建立 pass/fail/missing 三态规则，明确失败优先于缺失，不用零或臆测值补齐。
+4. **筛选解释信息过载**：将参考、入选依据和排除依据改为默认隐藏、点击展开，并增加浏览器 E2E 验证。
+5. **导出 JSON 不等于监控启动**：补充真实 GitHub Actions 刷新、重筛和状态变化记录，明确监控策略需提交仓库启用。
+6. **未经核验的 iFinD 数据可能被直接使用**：增加证券代码、单位、报告期、来源等结构校验，拒绝自由文本直接写入正式指标。
+7. **自动化脚本实际失败**：发现提交阶段 Shell 条件语句缺少结束符，修复后重新执行，确认完整刷新、监控、提交与部署成功。
 
 以上为项目代码及运行记录支持的迭代复盘，并非逐字 AI Prompt/Response 日志。
 
