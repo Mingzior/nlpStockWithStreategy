@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "source": "Fuyao REST API",
-  "sourceFetchedAt": "2026-10-21T10:40:16.310377+00:00",
-  "sourceAsOf": "1792579214000",
-  "checkedAt": "2026-10-21T10:40:16.348981+00:00",
+  "sourceFetchedAt": "2026-10-26T07:55:17.176035+00:00",
+  "sourceAsOf": "1793001315000",
+  "checkedAt": "2026-10-26T07:55:17.229445+00:00",
   "snapshotUrl": "https://github.com/Mingzior/nlpStockWithStreategy/blob/main/code/site/data/stocks.json",
   "strategies": [
     {
@@ -25,7 +25,7 @@
               "metric": "pe",
               "op": "<=",
               "threshold": 25,
-              "value": 20.104866,
+              "value": 20.723352,
               "result": "pass"
             }
           ]
@@ -38,7 +38,7 @@
               "metric": "pe",
               "op": "<=",
               "threshold": 25,
-              "value": 21.361179,
+              "value": 22.438139,
               "result": "pass"
             }
           ]
@@ -51,7 +51,7 @@
               "metric": "pe",
               "op": "<=",
               "threshold": 25,
-              "value": 5.819323,
+              "value": 5.980718,
               "result": "pass"
             }
           ]
@@ -64,7 +64,7 @@
               "metric": "pe",
               "op": "<=",
               "threshold": 25,
-              "value": 7.029157,
+              "value": 7.065733,
               "result": "pass"
             }
           ]
@@ -77,14 +77,14 @@
               "metric": "pe",
               "op": "<=",
               "threshold": 25,
-              "value": 14.418746,
+              "value": 14.700836,
               "result": "pass"
             }
           ]
         }
       },
       "changes": [],
-      "baseline": "new_or_rules_changed"
+      "baseline": "comparable"
     }
   ],
   "notice": "状态变化不是收益回测或买卖建议；仅监控仓库中已启用策略"
