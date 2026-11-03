@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "source": "Fuyao REST API",
-  "sourceFetchedAt": "2026-11-02T09:39:10.957466+00:00",
-  "sourceAsOf": "1793612349000",
-  "checkedAt": "2026-11-02T09:39:10.993293+00:00",
+  "sourceFetchedAt": "2026-11-03T09:42:38.946302+00:00",
+  "sourceAsOf": "1793698957000",
+  "checkedAt": "2026-11-03T09:42:38.982504+00:00",
   "snapshotUrl": "https://github.com/Mingzior/nlpStockWithStreategy/blob/main/code/site/data/stocks.json",
   "strategies": [
     {
@@ -25,7 +25,7 @@
               "metric": "pe",
               "op": "<=",
               "threshold": 25,
-              "value": 21.896009,
+              "value": 22.518305,
               "result": "pass"
             }
           ]
@@ -38,7 +38,7 @@
               "metric": "pe",
               "op": "<=",
               "threshold": 25,
-              "value": 23.642416,
+              "value": 24.056357,
               "result": "pass"
             }
           ]
@@ -51,7 +51,7 @@
               "metric": "pe",
               "op": "<=",
               "threshold": 25,
-              "value": 9.75862,
+              "value": 10.028673,
               "result": "pass"
             }
           ]
@@ -64,7 +64,7 @@
               "metric": "pe",
               "op": "<=",
               "threshold": 25,
-              "value": 7.122955,
+              "value": 7.042125,
               "result": "pass"
             }
           ]
@@ -77,7 +77,7 @@
               "metric": "pe",
               "op": "<=",
               "threshold": 25,
-              "value": 14.094763,
+              "value": 14.291115,
               "result": "pass"
             }
           ]
