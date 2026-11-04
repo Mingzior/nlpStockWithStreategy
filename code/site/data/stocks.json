@@ -4,8 +4,8 @@
   "sourceDocsUrl": "https://fuyao.aicubes.cn/docs/api-reference/valuations/",
   "sourceApiPath": "/api/a-share/valuations/snapshot",
   "sourceDisclosure": "sourceRecord 为接口响应中选取的原始字段；可公开点击的原数据库逐证券记录地址尚未验证，不能将 API 文档冒充原始记录。",
-  "asOf": "1793698957000",
-  "fetchedAt": "2026-11-03T09:42:38.946302+00:00",
+  "asOf": "1793784539000",
+  "fetchedAt": "2026-11-04T09:29:00.812085+00:00",
   "scope": "5只预设A股中的有效记录，不代表全市场",
   "metrics": {
     "pe": {
@@ -24,8 +24,8 @@
       "sourceRecord": {
         "thscode": "600519.SH",
         "name": "贵州茅台",
-        "pe_ttm": 22.518305,
-        "pb_mrq": 6.82186
+        "pe_ttm": 22.007688,
+        "pb_mrq": 6.66717
       },
       "sourceEndpoint": "/api/a-share/valuations/snapshot",
       "code": "600519.SH",
@@ -36,8 +36,8 @@
         "net_profit_growth": null,
         "roe": null,
         "gross_margin": null,
-        "pe": 22.518305,
-        "pb": 6.82186,
+        "pe": 22.007688,
+        "pb": 6.66717,
         "debt_ratio": null,
         "volatility_60d": null,
         "max_drawdown_1y": null
@@ -56,8 +56,8 @@
       "sourceRecord": {
         "thscode": "000858.SZ",
         "name": "五粮液",
-        "pe_ttm": 24.056357,
-        "pb_mrq": 2.476047
+        "pe_ttm": 23.91307,
+        "pb_mrq": 2.461299
       },
       "sourceEndpoint": "/api/a-share/valuations/snapshot",
       "code": "000858.SZ",
@@ -68,8 +68,8 @@
         "net_profit_growth": null,
         "roe": null,
         "gross_margin": null,
-        "pe": 24.056357,
-        "pb": 2.476047,
+        "pe": 23.91307,
+        "pb": 2.461299,
         "debt_ratio": null,
         "volatility_60d": null,
         "max_drawdown_1y": null
@@ -88,8 +88,8 @@
       "sourceRecord": {
         "thscode": "601318.SH",
         "name": "中国平安",
-        "pe_ttm": 10.028673,
-        "pb_mrq": 0.946504
+        "pe_ttm": 9.922121,
+        "pb_mrq": 0.936447
       },
       "sourceEndpoint": "/api/a-share/valuations/snapshot",
       "code": "601318.SH",
@@ -100,8 +100,8 @@
         "net_profit_growth": null,
         "roe": null,
         "gross_margin": null,
-        "pe": 10.028673,
-        "pb": 0.946504,
+        "pe": 9.922121,
+        "pb": 0.936447,
         "debt_ratio": null,
         "volatility_60d": null,
         "max_drawdown_1y": null
@@ -120,8 +120,8 @@
       "sourceRecord": {
         "thscode": "600036.SH",
         "name": "招商银行",
-        "pe_ttm": 7.042125,
-        "pb_mrq": 0.910861
+        "pe_ttm": 7.017381,
+        "pb_mrq": 0.907661
       },
       "sourceEndpoint": "/api/a-share/valuations/snapshot",
       "code": "600036.SH",
@@ -132,8 +132,8 @@
         "net_profit_growth": null,
         "roe": null,
         "gross_margin": null,
-        "pe": 7.042125,
-        "pb": 0.910861,
+        "pe": 7.017381,
+        "pb": 0.907661,
         "debt_ratio": null,
         "volatility_60d": null,
         "max_drawdown_1y": null
@@ -152,8 +152,8 @@
       "sourceRecord": {
         "thscode": "000333.SZ",
         "name": "美的集团",
-        "pe_ttm": 14.291115,
-        "pb_mrq": 3.048874
+        "pe_ttm": 14.146497,
+        "pb_mrq": 3.018021
       },
       "sourceEndpoint": "/api/a-share/valuations/snapshot",
       "code": "000333.SZ",
@@ -164,8 +164,8 @@
         "net_profit_growth": null,
         "roe": null,
         "gross_margin": null,
-        "pe": 14.291115,
-        "pb": 3.048874,
+        "pe": 14.146497,
+        "pb": 3.018021,
         "debt_ratio": null,
         "volatility_60d": null,
         "max_drawdown_1y": null
